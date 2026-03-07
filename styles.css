@@ -94,6 +94,7 @@ img {
   width: 90%;
   max-width: var(--container-width);
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .section {
@@ -253,10 +254,10 @@ img {
 
 .countdown-timer {
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 0.25rem 0.75rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 4px;
   font-family: monospace;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-accent);
   letter-spacing: 1px;
@@ -1103,19 +1104,19 @@ textarea:focus {
 /* --- Floating Elements --- */
 .whatsapp-float {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
   background-color: #25D366;
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.6rem;
   box-shadow: var(--shadow-lg);
-  z-index: 100;
+  z-index: 1000;
   transition: transform var(--transition-fast);
 }
 
@@ -1212,11 +1213,36 @@ textarea:focus {
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
 
-  .hero-container,
+  /* Layout adjustments */
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* Correct hero ordering: Image first, Text second on smaller screens */
+  .hero-content {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-image-wrapper {
+    order: 1;
+    min-height: auto;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
+
+
   .split-layout,
   .contact-wrapper {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
+  }
+
+  .content-column {
+    padding: 0 1rem;
   }
 
   .hero {
@@ -1225,7 +1251,8 @@ textarea:focus {
   }
 
   .hero-title {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .grid-3 {
@@ -1243,9 +1270,16 @@ textarea:focus {
     bottom: 0;
     height: 50%;
   }
+
+  /* Adjust section padding for smaller screens */
+  :root {
+    --section-padding: 3.5rem 0;
+  }
 }
 
 @media (max-width: 768px) {
+
+  /* Navigation */
   .mobile-menu-toggle {
     display: block;
   }
@@ -1282,26 +1316,134 @@ textarea:focus {
     display: block;
   }
 
-  .grid-3,
-  .grid-2 {
-    grid-template-columns: 1fr;
+  /* Typography Scaling */
+  html {
+    font-size: 15px;
+    /* Slight scaling down */
+  }
+
+  h2.section-title {
+    font-size: 2rem;
   }
 
   .hero-title {
-    font-size: 2.25rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  /* Grid Layouts fixed for mobile */
+  .grid-3,
+  .grid-2,
+  .grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+
+  /* Cards & Spacing */
+  .service-card {
+    padding: 2rem 1.5rem;
   }
 
   .hero-actions {
     flex-direction: column;
+    width: 100%;
+    gap: 1rem;
   }
 
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .hero-event-card {
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Ensure floating stats don't obscure content */
+  .stat-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    margin: -10px 0 0 0;
+    max-width: 90%;
+  }
+
+  .hero-img {
+    height: auto;
+    max-height: 280px;
+    /* Make photo smaller as requested */
+    width: auto;
+    max-width: 80%;
+    /* Don't stretch across the full screen width */
+    margin-inline: 0;
+    /* Align left alongside text if container is left aligned */
+  }
+
+  /* Forms & Interactions */
   .form-row {
     flex-direction: column;
-    gap: 0;
+    gap: 1rem;
+  }
+
+  .form-group.half {
+    width: 100%;
   }
 
   .media-tabs {
     flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    flex: 1 1 45%;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Trust Strip Overflow */
+  .logo-strip {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .trust-strip .container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Extra small devices polish */
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  h2.section-title {
+    font-size: 1.6rem;
+  }
+
+  .stat-card {
+    padding: 0.75rem 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
   }
 }
 
@@ -1335,12 +1477,14 @@ textarea:focus {
 
 .logo-strip {
   display: flex;
-  gap: 3rem;
+  gap: 1.5rem;
   color: var(--color-light-dim);
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
   opacity: 0.6;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hover-lift:hover {
@@ -1472,6 +1616,10 @@ textarea:focus {
 }
 
 /* Visibility for Case Studies */
-.text-orange { color: #FFA500 !important; }
-.text-blue { color: #63B3ED !important; }
+.text-orange {
+  color: #FFA500 !important;
+}
 
+.text-blue {
+  color: #63B3ED !important;
+}
