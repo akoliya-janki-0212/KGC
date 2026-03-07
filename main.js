@@ -1,0 +1,234 @@
+/**
+ * Keval Gandhi Consultant - Dynamic Multi-Page Logic
+ * Centralized Component Loader & Authority-First Interactions
+ */
+
+document.addEventListener('DOMContentLoaded', async () => {
+
+    /* --- 1. Dynamic Component Loader --- */
+    // This allows "one place changes" for Header, Footer, and Popup
+    function loadComponents() {
+        try {
+            const headerHTML = window.KGC_COMPONENTS.header;
+            const footerHTML = window.KGC_COMPONENTS.footer;
+            const popupHTML = window.KGC_COMPONENTS.popup;
+
+            const headerRoot = document.getElementById('header-root');
+            const footerRoot = document.getElementById('footer-root');
+            const popupRoot = document.getElementById('popup-root');
+
+            if (headerRoot) headerRoot.innerHTML = headerHTML;
+            if (footerRoot) footerRoot.innerHTML = footerHTML;
+            if (popupRoot) popupRoot.innerHTML = popupHTML;
+
+            // Re-initialize logic that depends on these components
+            initializeComponentLogic();
+            highlightActiveLink();
+            setupUniversalCTAs();
+        } catch (error) {
+            console.error('Error loading dynamic components:', error);
+        }
+    }
+
+    /* --- 2. Interactive Logic (Post-Load) --- */
+    function initializeComponentLogic() {
+        // Countdown Timer Logic
+        const targetDate = new Date("Mar 15, 2026 19:00:00").getTime();
+        const timerElement = document.getElementById("timer");
+
+        if (timerElement) {
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    timerElement.innerHTML = "LIVE NOW";
+                } else {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                }
+            }, 1000);
+        }
+
+        // Mobile Navigation Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.replace('fa-bars', 'fa-xmark');
+                } else {
+                    icon.classList.replace('fa-xmark', 'fa-bars');
+                }
+            });
+        }
+
+        // Mobile Dropdown Behavior
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Popup Management
+        const popupOverlay = document.getElementById('bada-style-popup');
+        const closePopupBtn = document.getElementById('closePopupBtn');
+        const popupForm = document.getElementById('popupForm');
+
+        if (closePopupBtn) {
+            closePopupBtn.addEventListener('click', () => {
+                popupOverlay.style.display = 'none';
+            });
+        }
+
+        window.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) popupOverlay.style.display = 'none';
+        });
+
+        // Auto-Trigger Popup (5 seconds)
+        const hasSeenPopup = sessionStorage.getItem('kgc_popup_seen');
+        if (!hasSeenPopup) {
+            setTimeout(() => {
+                if (popupOverlay) {
+                    popupOverlay.style.display = 'flex';
+                    sessionStorage.setItem('kgc_popup_seen', 'true');
+                }
+            }, 5000);
+        }
+
+        // Popup Form Submission
+        if (popupForm) {
+            popupForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = popupForm.querySelector('button[type="submit"]');
+                const successMsg = document.getElementById('popupSuccessMessage');
+                const originalText = btn.innerHTML;
+
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Request...';
+                btn.disabled = true;
+
+                try {
+                    const response = await fetch(popupForm.action, {
+                        method: 'POST',
+                        body: new FormData(popupForm),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        btn.innerHTML = 'Success!';
+                        popupForm.reset();
+                        if (successMsg) successMsg.style.display = 'block';
+                        setTimeout(() => {
+                            popupOverlay.style.display = 'none';
+                            btn.innerHTML = originalText;
+                            btn.disabled = false;
+                            if (successMsg) successMsg.style.display = 'none';
+                        }, 2500);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    btn.innerHTML = 'Error. Try Again.';
+                    btn.disabled = false;
+                    console.error('Submission error:', error);
+                }
+            });
+        }
+    }
+
+    /* --- 3. Unified CTA Logic --- */
+    function setupUniversalCTAs() {
+        // Any link or button with class 'cta-trigger' will open the popup
+        const triggers = document.querySelectorAll('.cta-trigger');
+        const popupOverlay = document.getElementById('bada-style-popup');
+
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                const href = trigger.getAttribute('href');
+                // Only intercept if it's not a link to another page (unless explicitly desired)
+                // For this request, we make all major buttons triggers
+                if (!href || href.startsWith('#') || trigger.tagName === 'BUTTON') {
+                    e.preventDefault();
+                    if (popupOverlay) popupOverlay.style.display = 'flex';
+                }
+            });
+        });
+    }
+
+    /* --- 4. Navigation UI Helpers --- */
+    function highlightActiveLink() {
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    // Scroll Effects
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (header) {
+            if (window.scrollY > 10) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        }
+    });
+
+    /* --- Initialize --- */
+    loadComponents();
+
+    // Main Contact Form Logic (Only on contact.html)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const successMsg = document.getElementById('formSuccessMessage');
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending Details...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    btn.innerHTML = 'Success!';
+                    contactForm.reset();
+                    if (successMsg) successMsg.style.display = 'block';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                btn.innerHTML = 'Error. Try Again.';
+                btn.disabled = false;
+                console.error('Submission error:', error);
+            }
+        });
+    }
+});
