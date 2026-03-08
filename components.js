@@ -47,7 +47,7 @@ window.KGC_COMPONENTS = {
 <footer class="footer">
     <div class="container footer-container">
         <div class="footer-brand">
-            <p class="mt-1 text-light-dim">Bridging the gap between operational chaos and systemic industrial growth.
+            <p class="mt-1 text-light-dim">Moving your factory from daily messes to a business that grows on its own.
             </p>
             <div class="contact-details mt-3 text-light-dim" style="font-size: 0.9rem;">
                 <p class="mb-1 text-light-dim"><i class="fa-solid fa-location-dot me-2"></i> 210, Arved Transcube Mall, Bandhu Nagar, Vijay Nagar, Ranip, Ahmedabad, Gujarat 382480</p>

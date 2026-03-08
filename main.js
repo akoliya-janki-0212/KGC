@@ -195,6 +195,78 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     /* --- Initialize --- */
     loadComponents();
+    initializeHeroSlider();
+
+    /* --- 5. Homepage Slider --- */
+    function initializeHeroSlider() {
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.prev-slide');
+        const nextBtn = document.querySelector('.next-slide');
+
+        if (slides.length === 0) return;
+
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let index = (currentSlide + 1) % slides.length;
+            showSlide(index);
+        }
+
+        function prevSlide() {
+            let index = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(index);
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide();
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                startAutoSlide();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                startAutoSlide();
+            });
+        }
+
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                showSlide(idx);
+                startAutoSlide();
+            });
+        });
+
+        // Pause on hover
+        const sliderContainer = document.querySelector('.hero-slider-container');
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+            sliderContainer.addEventListener('mouseleave', startAutoSlide);
+        }
+
+        startAutoSlide();
+    }
 
     // Main Contact Form Logic (Only on contact.html)
     const contactForm = document.getElementById('contactForm');
