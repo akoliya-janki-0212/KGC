@@ -5,16 +5,6 @@
 
 window.KGC_COMPONENTS = {
     header: `
-<!-- Real-Time Event Countdown Banner -->
-<div class="top-banner">
-    <div class="container banner-content">
-        <span class="banner-text"><i class="fa-brands fa-youtube" style="color: #ff0000; margin-right: 8px;"></i>
-            YouTube Live: OTM Mastery</span>
-        <div class="banner-actions">
-            <div id="timer" class="countdown-timer">Loading...</div>
-        </div>
-    </div>
-</div>
 
 <!-- Navigation Menu -->
 <header class="header">
@@ -33,8 +23,8 @@ window.KGC_COMPONENTS = {
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Consultancy</a></li>
-                <li><a href="coaching.html">Coaching Academy</a></li>
+                <li><a href="services.html">Services</a></li>
+                <!-- <li><a href="coaching.html">Coaching Academy</a></li> -->
                 <li><a href="case-studies.html">Case Studies</a></li>
                 <!-- <li><a href="media.html">Media Hub</a></li> -->
                 <li><a href="contact.html" class="btn btn-secondary nav-cta cta-trigger">Consultation</a></li>
@@ -67,7 +57,7 @@ window.KGC_COMPONENTS = {
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Consultancy Solutions</a></li>
-                <li><a href="coaching.html">Leadership Academy</a></li>
+
             </ul>
         </div>
         <div class="footer-links">
@@ -126,7 +116,6 @@ window.KGC_COMPONENTS = {
                     <option value="Growth Strategy">Systematic Growth Strategy</option>
                     <option value="Production Flow (OFM)">Production Flow Optimization (OFM)</option>
                     <option value="System Setup (OTM)">OTM System Setup</option>
-                    <option value="Career Coaching">Executive Career Coaching</option>
                 </select>
             </div>
 
