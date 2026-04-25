@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keval Gandhi Consultant | Industrial Growth & OTM/OFM Strategy</title>
+    <title>Keval Gandhi Consultant- Engineering & Advisory Services</title>
     <meta name="description"
         content="Proprietary industrial growth frameworks (OTM/OFM) for factory owners. Eliminate operational chaos and scale your industrial processing and packaging business with Principal Consultant Keval Gandhi.">
     <meta name="keywords"
@@ -20,6 +20,72 @@
 
 <body>
 
+    <!-- Top Visitor Banner -->
+    <div class="top-banner" id="visitor-banner">
+        <div class="banner-content container">
+            <div class="banner-text">
+                <i class="fa-solid fa-eye mr-2" style="color: var(--color-accent); font-size: 1.1rem;"></i>
+                <span style="opacity: 0.9;">Website Views: </span>
+                <span id="visitor-count" class="countdown-timer" style="margin: 0 8px; font-size: 1rem;">-----</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visitor Count Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Base Date for our count accumulation logic
+            const baseDate = new Date('2026-03-01T00:00:00').getTime();
+            const now = new Date().getTime();
+
+            // Calculate total days passed
+            const daysPassed = Math.floor((now - baseDate) / (1000 * 60 * 60 * 24));
+
+            // Starting believable visitor base + incrementing 2 per day automatically
+            let baseCount = 18456;
+            let targetCount = baseCount + (Math.max(0, daysPassed) * 2);
+
+            // Small subtle randomness
+            const hourOffset = new Date().getHours() % 4;
+            targetCount += hourOffset;
+
+            const counterElement = document.getElementById('visitor-count');
+            let currentCount = 0; // Starting from 0 as requested
+
+            const formatNumber = (num) => new Intl.NumberFormat('en-IN').format(num);
+
+            function animate() {
+                // Phase 1: Intro (0 to 100) - Show steps of 5
+                if (currentCount < 100) {
+                    currentCount += 5;
+                    counterElement.innerText = formatNumber(currentCount);
+                    setTimeout(animate, 60);
+                }
+                // Phase 2: Rapid Acceleration (to near target)
+                else if (currentCount < targetCount - 60) {
+                    const jump = Math.ceil((targetCount - currentCount) / 12);
+                    currentCount += jump;
+                    counterElement.innerText = formatNumber(currentCount);
+                    setTimeout(animate, 25);
+                }
+                // Phase 3: Outro (Slow down at the end)
+                else if (currentCount < targetCount) {
+                    currentCount += 1;
+                    counterElement.innerText = formatNumber(currentCount);
+
+                    const remaining = targetCount - currentCount;
+                    // Progressive delay for that "slow down" feel
+                    const delay = 180 - (remaining * 2);
+                    setTimeout(animate, Math.max(100, delay));
+                }
+                else {
+                    counterElement.innerText = formatNumber(targetCount);
+                }
+            }
+
+            animate();
+        });
+    </script>
     <div id="header-root"></div>
 
     <!-- Hero Section: Consultant-First Rebrand -->
@@ -45,37 +111,18 @@
 
         <div class="container hero-container">
             <div class="hero-content">
-                <div class="badge">Industrial Excellence</div>
-                <h1 class="hero-title">Engineering High-Output <span class="highlight">Industrial Success</span></h1>
-                <p class="hero-subtitle">Specialized consulting for Processing & Packaging industries. We help factory
+                <div class="badge">KGC Private Limited</div>
+                <h2 class="hero-title">Engineering & Advisory Services</h2>
+                <h3 class="hero-subtitle-small d-block mb-3 text-white fw-medium">Concept Selection - Plant setup Design
+                    - Product setup, Development & Branding</h3>
+                <p class="hero-subtitle">Specialized consulting for Processing & Packaging industries. We help
+                    factory
                     owners move past daily chaos toward a business that grows on its own.</p>
                 <div class="hero-actions">
-                    <button class="btn btn-primary cta-trigger">Schedule Your Business Review <i
+                    <button class="btn btn-primary cta-trigger">Connect with our Engineers <i
                             class="fa-solid fa-arrow-right"></i></button>
-                    <a href="case-studies.html" class="btn btn-outline">Explore Proven Results</a>
                 </div>
 
-                <div class="hero-event-card">
-                    <div class="event-info">
-                        <span class="event-label">Principal Masterclass</span>
-                        <h4>Architecting Industrial Systems for Scale</h4>
-                    </div>
-                    <button class="btn btn-sm btn-primary cta-trigger">Request Invitation</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Strip -->
-    <section class="trust-strip">
-        <div class="container flex-between align-center">
-            <span class="trust-label text-light-dim">TRUSTED BY LEADERS IN</span>
-            <div class="logo-strip">
-                <span><i class="fa-solid fa-utensils mr-1"></i> FOOD</span>
-                <span><i class="fa-solid fa-capsules mr-1"></i> PHARMA</span>
-                <span><i class="fa-solid fa-flask-vial mr-1"></i> CHEMICALS</span>
-                <!-- <span><i class="fa-solid fa-car mr-1"></i> AUTOMOTIVE</span> -->
-                <!-- <span><i class="fa-solid fa-scissors mr-1"></i> TEXTILES</span> -->
             </div>
         </div>
     </section>
@@ -85,16 +132,20 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">350+</span>
+                    <span class="stat-number">550+</span>
                     <span class="stat-label">Strategic Consultations</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">Ambitious Students</span>
+                    <span class="stat-number">300+</span>
+                    <span class="stat-label">Verified Exportes</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">10+</span>
-                    <span class="stat-label">Years of Excellence</span>
+                    <span class="stat-number">2000+</span>
+                    <span class="stat-label">MSMEs Helped</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Expertise Years</span>
                 </div>
             </div>
         </div>
@@ -105,105 +156,360 @@
         <div class="container">
             <div class="split-layout align-center">
                 <div class="image-column">
-                    <!-- Professional consulting imagery to differentiate the biography section -->
                     <div class="glass-card stat-card stat-1">
                         <div class="stat-icon"><i class="fa-solid fa-user-tie"></i></div>
                         <div class="stat-text">
                             <span class="stat-value" style="font-size: 1.2rem;">Er. Keval Gandhi</span>
                         </div>
                     </div>
-                    <img src="assets/keval-gandhi.png" alt="Er. Keval Gandhi - Principal Consultant"
-                        class="rounded-img shadow-lg" width="500" height="500">
-
+                    <img src="assets/keval-gandhi.png" alt="Er. Keval Gandhi - Consultant" class="rounded-img shadow-lg"
+                        width="500" height="500">
                 </div>
+
                 <div class="content-column">
-                    <span class="section-tag">WHO IS KEVAL GANDHI?</span>
-                    <h2 class="section-title">The Architect of Industrial Growth</h2>
-                    <p class="section-description">For over ten years, we have helped ambitious factory owners stop
-                        being the "one person in charge" of every single decision. Most owners get stuck because the
-                        business can't move without them; we fix that. Our goal is to turn your factory into a business
-                        that runs smoothly on its own and makes money without needing you there every day.</p>
+                    <span class="section-tag">ABOUT THE CONSULTANT</span>
+                    <h2 class="section-title">Helping Businesses Grow Smoothly</h2>
 
-                    <div class="expertise-grid mt-4">
-                        <div class="expertise-item">
-                            <i class="fa-solid fa-chess-knight text-primary"></i>
-                            <div>
-                                <h4>Business Strategy</h4>
-                                <p>Create a big-picture plan for your factory so you can lead your industry for years to
-                                    come.</p>
-                            </div>
-                        </div>
-                        <div class="expertise-item">
-                            <i class="fa-solid fa-users-gear text-primary"></i>
-                            <div>
-                                <h4>Operational Flow</h4>
-                                <p>We organize the way work moves through your plant to make sure everything stays on
-                                    track and finishes on time.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="section-description">
+                        Er. Keval Gandhi has over 15 years of experience helping factory and business owners
+                        manage and grow their businesses. From starting a new idea to building a complete system,
+                        he provides practical support at every step.
+                    </p>
 
-                    <a href="about.html" class="btn btn-outline mt-4">Deep Dive Into Our Philosophy</a>
+                    <p class="section-description">
+                        The goal is simple — to create a business that runs smoothly, saves time, and grows
+                        without depending on the owner for every small decision.
+                    </p>
+                    <a href="about.html" class="btn btn-outline mt-4">
+                        Learn More
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Consulting Pillars -->
+    <!-- About Company Section -->
+    <section class="kgc-division-section bg-light" style="font-family: Arial, sans-serif;">
+        <div class="kgc-container">
+            <div class="kgc-header text-center">
+                <span class="kgc-subtitle">ABOUT COMPANY</span>
+                <h2 class="kgc-title">KGC Private Limited</h2>
+            </div>
+
+            <div class="about-company-content" style="max-width: 1100px; margin: 0 auto;">
+                <p class="kgc-description"
+                    style="max-width: 100%; text-align: left; margin-bottom: 15px; font-size: 14px;">
+                    KGC Private Limited is one of India's leading Engineering & Advisory Services consulting firms.
+                    Since its establishment in 2008, the company has been delivering result-oriented consultancy
+                    services across a wide range of industries.
+                </p>
+                <p class="kgc-description"
+                    style="max-width: 100%; text-align: left; margin-bottom: 15px; font-size: 14px;">
+                    We specialize in post-harvest processing, industrial infrastructure development, and end-to-end
+                    project consultancy for sectors including food and beverages, pharmaceuticals, cosmetics,
+                    chemicals, FMCG, agro-processing, marine, dairy, meat processing, and general manufacturing
+                    industries. Our expertise extends beyond food to cover diverse industrial domains requiring
+                    advanced processing and packaging solutions.
+                </p>
+                <p class="kgc-description"
+                    style="max-width: 100%; text-align: left; margin-bottom: 15px; font-size: 14px;">
+                    As recipients of several prestigious awards in the processing and packaging industry, we offer
+                    a complete range of consulting services, from conceptualization and project planning to
+                    execution and commissioning.
+                </p>
+                <p class="kgc-description"
+                    style="max-width: 100%; text-align: left; margin-bottom: 15px; font-size: 14px;">
+                    Our team of highly qualified professionals brings extensive experience in technologies such as
+                    extrusion, dehydration, pulping, concentration, retort processing, freezing, and advanced
+                    manufacturing systems. We also provide technical advisory, plant setup, process optimization,
+                    system development, and turnkey project solutions across multiple industries.
+                </p>
+                <p class="kgc-description"
+                    style="max-width: 100%; text-align: left; margin-bottom: 15px; font-size: 14px;">
+                    In addition, we act as a Regulatory and Compliance Consultant, assisting clients in meeting
+                    industry standards, certifications, and protocols across regions including Gujarat, Mumbai, and
+                    Kolkata.
+                </p>
+                <p class="kgc-description"
+                    style="max-width: 100%; text-align: left; margin-bottom: 15px; font-size: 14px;">
+                    KGC Private Limited is recognized as a trusted consultant for juice, beverage, dairy, snacks,
+                    spices, API (pharmaceutical), honey, chemical processing, and industrial manufacturing
+                    projects. We support clients with government subsidy coordination and approvals through central
+                    and state-level schemes, ensuring smooth project execution and financial optimization.
+                </p>
+                <p class="kgc-description"
+                    style="max-width: 100%; text-align: left; margin-bottom: 15px; font-size: 14px;">
+                    At KGC Private Limited, we are committed to delivering innovative, efficient, and scalable
+                    consulting solutions tailored to the evolving needs of modern industries.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Our Food Consulting Services Section -->
+    <section class="kgc-division-section">
+        <div class="kgc-container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Our Consulting Services</h2>
+                <p class="description">
+                    End-to-end consulting across 12+ specialized areas - from ideation to commercialization.
+                </p>
+            </div>
+            <div class="kgc-grid">
+
+                <!-- Card 1 -->
+                <div class="kgc-card">
+                    <img src="assets/factory_setup.png" alt="">
+                    <div class="kgc-card-content">
+                        <h3>Factory & Plant Setup Consultant</h3>
+                        <p>We manage your full factory setup - from site selection and plant layout to machinery
+                            sourcing and production scaling. Our consultants oversee every step from commissioning to
+                            your first production run.</p>
+                        <a href="#">VIEW SOLUTIONS →</a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="kgc-card">
+                    <img src="assets/packaging_consultant.jpg" alt="">
+                    <div class="kgc-card-content">
+                        <h3>Packaging & Branding Consultant</h3>
+                        <p>We deliver practical, sustainable, regulation-compliant packaging with strong shelf appeal
+                            and cost efficiency. Our consultants help you select materials, design for impact, and meet
+                            FSSAI labelling requirements.</p>
+                        <a href="#">VIEW SOLUTIONS →</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="kgc-card">
+                    <img src="assets/fssai_complince.png" alt="">
+                    <div class="kgc-card-content">
+                        <h3>Quality & FSSAI Compliance Consultant</h3>
+                        <p>We guide you through FSSAI licensing, FDA approvals, ISO 22000, and HACCP certifications with
+                            expert precision. Our consultants conduct audits, implement quality systems, and prepare
+                            your facility for inspections.</p>
+                        <a href="#">VIEW SOLUTIONS →</a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="kgc-card">
+                    <img src="assets/turnkey_consultant.png" alt="">
+                    <div class="kgc-card-content">
+                        <h3>Turnkey Project Consulting</h3>
+                        <p>Complete end-to-end plant architecture, from conceptual blueprinting to installation and
+                            final commissioning.</p>
+                        <a href="#">VIEW SOLUTIONS →</a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="kgc-card">
+                    <img src="assets/marketing.png" alt="">
+                    <div class="kgc-card-content">
+                        <h3>Market Research & Strategy Consultant</h3>
+                        <p>Our consultants build data-driven strategies grounded in consumer behaviour, market trends,
+                            and brand positioning. From market entry planning to digital campaigns, we drive actual,
+                            measurable sales.</p>
+                        <a href="#">VIEW SOLUTIONS →</a>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="kgc-card">
+                    <img src="assets/food_consultant.png" alt="">
+                    <div class="kgc-card-content">
+                        <h3>Food Processing Consultant</h3>
+                        <p>We optimise your food processing operations from raw material sourcing through to production.
+                            Our practical strategies keep your operations competitive, compliant, and cost-efficient.
+                        </p>
+                        <a href="#">VIEW SOLUTIONS →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Industries We Can Cover -->
     <section class="section bg-light">
         <div class="container">
             <div class="section-header text-center">
-                <span class="section-tag">OUR METHOD</span>
-                <h2 class="section-title">Consultancy for Growth Blockers</h2>
-                <p class="section-description">We spot the small, hidden bottlenecks that are dragging your factory down
-                    and replace them with solid systems so your production never hits a snag.</p>
+                <span class="section-tag">Our Expertise</span>
+                <h2 class="section-title">Industries We Can Cover</h2>
+                <p class="section-description">Serving a wide spectrum of industries with tailored processing and
+                    packaging solutions from our Ahmedabad facility.</p>
             </div>
 
-            <div class="grid-3" style="gap: 20px;">
-                <div class="service-card text-center hover-lift">
-                    <i class="fa-solid fa-magnifying-glass-chart fa-3x text-primary mb-3"></i>
-                    <h3>The Review</h3>
-                    <p>Eliminate hidden profit leaks by identifying the strategic gaps in your macro-industrial roadmap.
-                    </p>
-                    <button class="link-arrow cta-trigger">Start Check-up <i
-                            class="fa-solid fa-arrow-right"></i></button>
+            <div class="grid-3 mt-5" style="gap: 1.5rem;">
+                <!-- 1 Foods -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_industry_food.png" alt="Foods Industry"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-utensils"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Foods</span>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="service-card text-center hover-lift">
-                    <i class="fa-solid fa-diagram-project fa-3x text-accent mb-3"></i>
-                    <h3>The System</h3>
-                    <p>Solve the "Founder's Trap." We implement our OTM/OFM systems to decentralize authority.</p>
-                    <button class="link-arrow cta-trigger">Deploy Methods <i
-                            class="fa-solid fa-arrow-right"></i></button>
+                <!-- 2 Spices & Lentils -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_industry_spices.png" alt="Spices & Lentils"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-pepper-hot"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Spices & Lentils</span>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="service-card text-center hover-lift">
-                    <i class="fa-solid fa-chart-line fa-3x text-primary mb-3"></i>
-                    <h3>The Pipeline</h3>
-                    <p>Fix inconsistent sales. Systematic lead generation to keep your factory at 100% capacity.</p>
-                    <button class="link-arrow cta-trigger">Build Funnel <i class="fa-solid fa-arrow-right"></i></button>
+                <!-- 3 Pharmaceutical -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_industry_pharma.png" alt="Pharmaceutical"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-pills"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Pharmaceutical</span>
+                        </div>
+                    </div>
                 </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Proprietary Frameworks Teaser -->
-    <section class="section bg-dark text-white">
-        <div class="container text-center">
-            <span class="badge"
-                style="background: rgba(255,107,0,0.2); border: 1px solid var(--color-accent); color: var(--color-accent);">Our
-                Secret Sauce</span>
-            <h2 class="mt-3 text-white">Powerful Frameworks. Proven Results.</h2>
-            <p class="text-light-dim mb-5" style="max-width: 800px; margin-inline: auto;">While our consulting covers
-                broad business strategy, we use specialized internal tools like <strong>OTM</strong> (Organizational
-                Transformation Method) and <strong>OFM</strong> (Optimal Flow Method) to achieve the results you see.
-            </p>
-
-            <div class="flex-center gap-3">
-                <button class="btn btn-primary cta-trigger">See OTM/OFM in Action</button>
-                <a href="services.html" class="btn btn-outline text-white border-white">Explore Full Services</a>
+                <!-- 4 API -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_industry_api.png" alt="API Industry"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-flask"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">API</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 5 Pesticide -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_indsutry_pesticide.png" alt="Pesticide Industry"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-spray-can-sparkles"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Pesticide</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 6 Agriculture -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_indsutry_agro.png" alt="Agriculture"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-tractor"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Agriculture</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 7 Cosmetic -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_industryr_cosmatic.png" alt="Cosmetic Industry"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-spa"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Cosmetic</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 8 Chemical -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_chemical.png" alt="Chemical Industry"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-atom"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Chemical</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 9 Instant Mix & Ready to Eat -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_industry_ready_to_Eat.png" alt="Instant Mix & Ready to Eat"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-bowl-rice"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Instant Mix & Ready to
+                                Eat</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 10 Detergent Powder -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_industry_detirgent.png" alt="Detergent Powder"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-soap"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Detergent Powder</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 11 Chocolate -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_industry_chocolate.png" alt="Chocolate Industry"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-candy-bar"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Chocolate</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 12 Export Industries -->
+                <div class="hover-lift"
+                    style="position:relative; border-radius:14px; overflow:hidden; height:220px; cursor:default;">
+                    <img src="assets/home_industry_export.png" alt="Export Industries"
+                        style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div
+                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                        <div>
+                            <i class="fa-solid fa-earth-americas"
+                                style="color:var(--color-accent); font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Export Industries</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
