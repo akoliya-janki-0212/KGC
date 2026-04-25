@@ -41,7 +41,7 @@ window.KGC_COMPONENTS = {
             </p>
             <div class="contact-details mt-3 text-light-dim" style="font-size: 0.9rem;">
                 <p class="mb-1 text-light-dim"><i class="fa-solid fa-location-dot me-2"></i> 210, Arved Transcube Mall, Bandhu Nagar, Vijay Nagar, Ranip, Ahmedabad, Gujarat 382480</p>
-                <p class="mb-1 text-light-dim"><i class="fa-solid fa-phone me-2"></i> +91 8320042384</p>
+                <p class="mb-1 text-light-dim"><i class="fa-solid fa-phone me-2"></i> +91 9274797034</p>
                 <p class="mb-1 text-light-dim"><i class="fa-solid fa-envelope me-2"></i> connect@kgcpl.com</p>
             </div>
             <div class="social-icons mt-3">
@@ -75,7 +75,7 @@ window.KGC_COMPONENTS = {
 </footer>
 
 <!-- WhatsApp Floating Button -->
-<a href="https://wa.me/918320042384" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/919274797034" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
 `,
