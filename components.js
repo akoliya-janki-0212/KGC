@@ -40,9 +40,8 @@ window.KGC_COMPONENTS = {
             <p class="mt-1 text-light-dim">Moving your factory from daily messes to a business that grows on its own.
             </p>
             <div class="contact-details mt-3 text-light-dim" style="font-size: 0.9rem;">
-                <p class="mb-1 text-light-dim"><i class="fa-solid fa-location-dot me-2"></i> 210, Arved Transcube Mall, Bandhu Nagar, Vijay Nagar, Ranip, Ahmedabad, Gujarat 382480</p>
-                <p class="mb-1 text-light-dim"><i class="fa-solid fa-phone me-2"></i> +91 9274797034</p>
-                <p class="mb-1 text-light-dim"><i class="fa-solid fa-envelope me-2"></i> connect@kgcpl.com</p>
+                <p class="mb-1 text-light-dim"><i class="fa-solid fa-phone me-2"></i> +91 9898727796, +91 9023979663</p>
+                <p class="mb-1 text-light-dim"><i class="fa-solid fa-envelope me-2"></i> keval.projectindia@gmail.com</p>
             </div>
             <div class="social-icons mt-3">
                 <a href="https://www.facebook.com/profile.php?id=61577793967014&sk=about" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
@@ -75,7 +74,7 @@ window.KGC_COMPONENTS = {
 </footer>
 
 <!-- WhatsApp Floating Button -->
-<a href="https://wa.me/919274797034" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/919898727796" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
 `,
