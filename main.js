@@ -82,88 +82,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         });
 
-        // Popup Management
-        const popupOverlay = document.getElementById('bada-style-popup');
-        const closePopupBtn = document.getElementById('closePopupBtn');
-        const popupForm = document.getElementById('popupForm');
-
-        if (closePopupBtn) {
-            closePopupBtn.addEventListener('click', () => {
-                popupOverlay.style.display = 'none';
-            });
-        }
-
-        window.addEventListener('click', (e) => {
-            if (e.target === popupOverlay) popupOverlay.style.display = 'none';
-        });
-
-        // Auto-Trigger Popup (5 seconds)
-        const hasSeenPopup = sessionStorage.getItem('kgc_popup_seen');
-        if (!hasSeenPopup) {
-            setTimeout(() => {
-                if (popupOverlay) {
-                    popupOverlay.style.display = 'flex';
-                    sessionStorage.setItem('kgc_popup_seen', 'true');
-                }
-            }, 5000);
-        }
-
-        // Popup Form Submission
-        if (popupForm) {
-            popupForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const btn = popupForm.querySelector('button[type="submit"]');
-                const successMsg = document.getElementById('popupSuccessMessage');
-                const originalText = btn.innerHTML;
-
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Request...';
-                btn.disabled = true;
-
-                try {
-                    const response = await fetch(popupForm.action, {
-                        method: 'POST',
-                        body: new FormData(popupForm),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        btn.innerHTML = 'Success!';
-                        popupForm.reset();
-                        if (successMsg) successMsg.style.display = 'block';
-                        setTimeout(() => {
-                            popupOverlay.style.display = 'none';
-                            btn.innerHTML = originalText;
-                            btn.disabled = false;
-                            if (successMsg) successMsg.style.display = 'none';
-                        }, 2500);
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    btn.innerHTML = 'Error. Try Again.';
-                    btn.disabled = false;
-                    console.error('Submission error:', error);
-                }
-            });
-        }
+        // Popup removed - all CTAs navigate cleanly to contact page
     }
 
     /* --- 3. Unified CTA Logic --- */
     function setupUniversalCTAs() {
-        // Any link or button with class 'cta-trigger' will open the popup
         const triggers = document.querySelectorAll('.cta-trigger');
-        const popupOverlay = document.getElementById('bada-style-popup');
 
         triggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 const href = trigger.getAttribute('href');
-                // Only intercept if it's not a link to another page (unless explicitly desired)
-                // For this request, we make all major buttons triggers
                 if (!href || href.startsWith('#') || trigger.tagName === 'BUTTON') {
                     e.preventDefault();
-                    if (popupOverlay) popupOverlay.style.display = 'flex';
+                    window.location.href = 'contact.html';
                 }
             });
         });

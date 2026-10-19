@@ -25,7 +25,7 @@ window.KGC_COMPONENTS = {
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <!-- <li><a href="coaching.html">Coaching Academy</a></li> -->
-                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="projects.html">Projects</a></li>
                 <!-- <li><a href="media.html">Media Hub</a></li> -->
                 <li><a href="contact.html" class="btn btn-secondary nav-cta cta-trigger">Consultation</a></li>
             </ul>
@@ -40,7 +40,7 @@ window.KGC_COMPONENTS = {
             <p class="mt-1 text-light-dim">Moving your factory from daily messes to a business that grows on its own.
             </p>
             <div class="contact-details mt-3 text-light-dim" style="font-size: 0.9rem;">
-                <p class="mb-1 text-light-dim"><i class="fa-solid fa-phone me-2"></i> +91 9898727796, +91 9023979663</p>
+                <p class="mb-1 text-light-dim"><i class="fa-solid fa-phone me-2"></i> +91 9023979663</p>
                 <p class="mb-1 text-light-dim"><i class="fa-solid fa-envelope me-2"></i> keval.projectindia@gmail.com</p>
             </div>
             <div class="social-icons mt-3">
@@ -51,80 +51,36 @@ window.KGC_COMPONENTS = {
             </div>
         </div>
         <div class="footer-links">
-            <h4>Solutions</h4>
+            <h4>Main Services</h4>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Consultancy Solutions</a></li>
-
+                <li><a href="services.html#cost-control">Cost Control Audit</a></li>
+                <li><a href="services.html#ppc">Production Planning (PPC)</a></li>
+                <li><a href="services.html#quality-audit">Quality Audit</a></li>
+                <li><a href="services.html#wastage-yield">Wastage & Yield</a></li>
+                <li><a href="services.html#food-safety">Food Safety & Compliance</a></li>
+                <li><a href="services.html#mis-dashboard">MIS & Dashboards</a></li>
             </ul>
         </div>
         <div class="footer-links">
-            <h4>Resources</h4>
+            <h4>Quick Links</h4>
             <ul>
-                <li><a href="case-studies.html">Success Stories</a></li>
-                <!-- <li><a href="media.html">Knowledge Hub</a></li> -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">All Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Book Business Review</a></li>
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2026 Keval Gandhi Consultant. Engineered for Exponential Growth.</p>
+        <p>&copy; 2026 KGC Private Limited. Engineered for Exponential Industrial Growth.</p>
     </div>
 </footer>
 
 <!-- WhatsApp Floating Button -->
-<a href="https://wa.me/919898727796" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/919023979663" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
 `,
-    popup: `
-<div id="bada-style-popup" class="modal-overlay" style="display: none;">
-    <div class="modal-content glass-morphism">
-        <button class="modal-close" id="closePopupBtn">&times;</button>
-        <div class="modal-header">
-            <h3>Secure Your Strategic Business Review</h3>
-            <p>Direct advisory for factory owners & industrial leaders looking to eliminate operational chaos.</p>
-        </div>
-
-        <form id="popupForm" action="https://formspree.io/f/xojkqgyz" method="POST">
-            <div class="form-group">
-                <input type="text" name="name" required placeholder="Full Name" class="input-light">
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" required placeholder="Professional Email" class="input-light">
-            </div>
-            <div class="form-group">
-                <input type="tel" name="whatsapp" required placeholder="WhatsApp Number (With Country Code)"
-                    class="input-light">
-            </div>
-
-            <div class="form-group">
-                <select name="role" required class="input-light">
-                    <option value="" disabled selected>Current Professional Role</option>
-                    <option value="Factory Owner">Factory Owner / CEO</option>
-                    <option value="Manager">Operations / Plant Manager</option>
-                    <option value="Student">Ambitious Student / Future Leader</option>
-                    <option value="Other">External Consultant / Other</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <select name="need" required class="input-light">
-                    <option value="" disabled selected>Primary Strategic Need</option>
-                    <option value="Growth Strategy">Systematic Growth Strategy</option>
-                    <option value="Production Flow (OFM)">Production Flow Optimization (OFM)</option>
-                    <option value="System Setup (OTM)">OTM System Setup</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block mt-3">Request Immediate Consultation <i
-                    class="fa-solid fa-paper-plane"></i></button>
-            <p id="popupSuccessMessage" class="success-message"
-                style="display: none; color: #28a745; margin-top: 10px; font-weight: 600; text-align:center;">Strategic
-                insight requested. Check your WhatsApp shortly.</p>
-    </div>
-    </form>
-</div>
-`
+    popup: ``
 };

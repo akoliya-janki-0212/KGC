@@ -26,8 +26,11 @@
         <div class="container">
             <div class="contact-wrapper">
                 <div class="contact-info-col">
+                    <div class="badge-pill-wrapper">
+                        <span class="badge-pill">GET IN TOUCH</span>
+                    </div>
                     <h1 class="section-title">Schedule Your Business Review</h1>
-                    <p class="section-description">Take the first step towards systematic industrial automation.</p>
+                    <p class="section-description" style="margin-top: 18px;">Take the first step towards systematic operational optimization.</p>
 
                     <div class="info-blocks mt-4">
                         <div class="info-item">
@@ -41,7 +44,7 @@
                             <div class="icon-wrap"><i class="fa-solid fa-phone"></i></div>
                             <div>
                                 <h5>Phone / WhatsApp</h5>
-                                <p>+91 9898727796<br>+91 9023979663</p>
+                                <p>+91 9023979663</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -60,49 +63,30 @@
                         <h3>Strategic Inquiry</h3>
                         <p class="form-sub">Submit your details for a high-level consultation callback.</p>
 
-                        <form id="contactForm" action="https://formspree.io/f/xojkqgyz" method="POST">
+                        <form id="contactForm" action="https://formspree.io/f/xbgdbweo" method="POST">
                             <div class="form-group">
-                                <label for="contactName">Full Name</label>
-                                <input type="text" id="contactName" name="name" required placeholder="Ex: Rajesh Shah">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="contactEmail">Professional Email</label>
-                                <input type="email" id="contactEmail" name="email" required
-                                    placeholder="rajesh@shahltd.com">
+                                <label for="contactName">Name</label>
+                                <input type="text" id="contactName" name="name" required placeholder="Full Name" style="border-radius: 0;">
                             </div>
 
                             <div class="form-group">
-                                <label for="contactMobile">WhatsApp Connectivity</label>
-                                <input type="tel" id="contactMobile" name="mobile" required
-                                    placeholder="+91 98765 43210">
+                                <label for="contactEmail">Email</label>
+                                <input type="email" id="contactEmail" name="email" required placeholder="Email Address" style="border-radius: 0;">
                             </div>
 
-                            <div class="form-row">
-                                <div class="form-group half">
-                                    <label for="contactRole">Your Portfolio</label>
-                                    <select id="contactRole" name="role" required>
-                                        <option value="" disabled selected>Select Role...</option>
-                                        <option value="Factory Owner">Factory Owner / CEO</option>
-                                        <option value="Manager">Operations Head</option>
-                                        <option value="Student">Strategic Student</option>
-                                    </select>
-                                </div>
-                                <div class="form-group half">
-                                    <label for="contactNeed">Immediate Need</label>
-                                    <select id="contactNeed" name="need" required>
-                                        <option value="" disabled selected>Select Requirement...</option>
-                                        <option value="Growth Strategy">System Design (OTM)</option>
-                                        <option value="Production Flow (OFM)">Flow Mastery (OFM)</option>
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Contact</label>
+                                <input type="tel" id="contactPhone" name="contact" required placeholder="Phone / WhatsApp Number" style="border-radius: 0;">
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-block mt-3">Request Strategic
-                                Review</button>
+                            <div class="form-group">
+                                <label for="contactDescription">Description</label>
+                                <textarea id="contactDescription" name="description" rows="4" required placeholder="Write your message or requirements here..." style="border-radius: 0; resize: vertical;"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block mt-3" style="border-radius: 0;">Submit Inquiry <i class="fa-solid fa-paper-plane"></i></button>
                             <p id="formSuccessMessage" class="success-message"
-                                style="display: none; color: green; margin-top: 10px; font-weight: 600;">Strategic
-                                request received. We will initiate contact shortly.</p>
+                                style="display: none; color: green; margin-top: 10px; font-weight: 600;">Message received successfully. We will contact you shortly.</p>
                         </form>
                     </div>
                 </div>

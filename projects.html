@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Projects & Plant Consultancy Highlights | KGC Private Limited</title>
+    <meta name="description"
+        content="Explore real-world plant consultancy projects executed by KGC Private Limited across Gujarat and India — including namkeen cost control in Anjar, spices automation in Unjha, and flour milling in Ahmedabad.">
+    <meta name="keywords"
+        content="Industrial Projects, Plant Consultancy, Namkeen Cost Control Anjar, Spices Automation Unjha, Flour Mill Project Ahmedabad, KGC Private Limited">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Projects Filter Tabs */
+        .project-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto 2.5rem;
+            max-width: 900px;
+        }
+
+        .project-filter-btn {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            padding: 9px 20px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 0;
+            transition: all 0.25s ease;
+            font-family: var(--font-heading);
+        }
+
+        .project-filter-btn:hover,
+        .project-filter-btn.active {
+            background: var(--color-dark);
+            color: #ffffff;
+            border-color: var(--color-dark);
+        }
+
+        .project-item {
+            transition: all 0.3s ease;
+        }
+
+        .project-item.hidden {
+            display: none !important;
+        }
+
+        /* Real-world Project Showcase Cards */
+        .project-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+            gap: 2.2rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+        }
+
+        .project-showcase-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .project-showcase-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(15, 43, 70, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .project-showcase-media {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #0f172a;
+            overflow: hidden;
+        }
+
+        .project-showcase-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            transition: transform 0.5s ease;
+        }
+
+        .project-showcase-card:hover .project-showcase-media img {
+            transform: scale(1.04);
+        }
+
+        .project-location-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(4px);
+            color: #ffffff;
+            padding: 6px 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-radius: 0;
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .project-showcase-body {
+            padding: 1.6rem 1.75rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 0.45rem;
+        }
+
+        .project-showcase-title {
+            font-size: 1.25rem;
+            color: #0f2b46;
+            margin-top: 0;
+            margin-bottom: 0.85rem;
+            line-height: 1.35;
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        .project-showcase-desc {
+            font-size: 0.93rem;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .project-highlight-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0;
+            padding: 0.9rem 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-highlight-item {
+            font-size: 0.86rem;
+            line-height: 1.45;
+        }
+
+        .project-highlight-item .highlight-label {
+            display: block;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            margin-bottom: 2px;
+        }
+
+        .project-highlight-item .highlight-val {
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .project-highlight-item.result-item {
+            background: #f0fdf4;
+            border-left: 3px solid #10b981;
+            padding: 8px 10px;
+            margin-top: 2px;
+        }
+
+        .project-highlight-item.result-item .highlight-label {
+            color: #065f46;
+        }
+
+        .project-highlight-item.result-item .highlight-val {
+            color: #047857;
+            font-weight: 700;
+        }
+
+        .project-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        .project-card-btn {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .project-card-btn:hover {
+            color: var(--color-primary);
+        }
+
+        .project-card-wa {
+            color: #16a34a;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-card-wa:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-root"></div>
+
+    <!-- Hero Header with Industrial Background -->
+    <section class="section text-white"
+        style="position: relative; padding: 5.5rem 0; min-height: 38vh; display: flex; align-items: center; background: url('assets/about_hero_bg.jpg') center/cover no-repeat;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(rgba(15, 35, 55, 0.42), rgba(10, 22, 36, 0.58));"></div>
+        <div class="container text-center" style="position: relative; z-index: 2;">
+            <h1 class="hero-title text-white" style="font-size: clamp(1.6rem, 3.2vw, 2.3rem); margin-top: 0; margin-bottom: 0; text-shadow: 0 2px 14px rgba(0,0,0,0.85);">
+                Our Industrial <span class="highlight" style="color: #ffffff;">Projects & Plants</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- Real-World Manufacturing Projects Showcase -->
+    <section class="section bg-light" id="all-projects" style="padding-top: 3.5rem; padding-bottom: 4.5rem;">
+        <div class="container" style="max-width: 1350px;">
+            <div class="section-header text-center">
+                <h2 class="section-title">Plant Setups & <span class="highlight">Consultancy Projects</span></h2>
+                <p class="section-description" style="max-width: 800px; margin: 12px auto 0; font-size: 1rem; color: #4a5568;">
+                    Sample real-world transformations, cost control audits, and yield enhancement projects executed across Gujarat and India.
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="project-filters">
+                <button class="project-filter-btn active" data-filter="all">All Projects (7)</button>
+                <button class="project-filter-btn" data-filter="snacks">Namkeen & Snacks (3)</button>
+                <button class="project-filter-btn" data-filter="spices-flour">Spices & Flour (2)</button>
+                <button class="project-filter-btn" data-filter="liquids-oils">Oils & Sauces (2)</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="project-showcase-grid">
+
+                <!-- Project 1: Namkeen Cost Control Anjar -->
+                <div class="project-showcase-card project-item" data-category="snacks">
+                    <div class="project-showcase-media">
+                        <img src="assets/project_namkeen_anjar.jpg" alt="Namkeen Cost Control Project in Anjar" loading="lazy">
+                        <div class="project-location-badge">
+                            <i class="fa-solid fa-location-dot"></i> Anjar, Kutch
+                        </div>
+                    </div>
+                    <div class="project-showcase-body">
+                        <div class="project-tag">Namkeen & Farsan Processing</div>
+                        <h3 class="project-showcase-title">Namkeen Cost Control & Oil Yield Project in Anjar</h3>
+                        <p class="project-showcase-desc">
+                            End-to-end plant cost control audit for a commercial farsan and namkeen manufacturer in Anjar. Re-engineered oil circulation temperature loops, tuned continuous fryer flow, and automated seasoning dusting drums.
+                        </p>
+                        <div class="project-highlight-box">
+                            <div class="project-highlight-item">
+                                <span class="highlight-label"><i class="fa-solid fa-bullseye"></i> Key Challenge</span>
+                                <span class="highlight-val">Excessive oil absorption and uneven seasoning powder wastage.</span>
+                            </div>
+                            <div class="project-highlight-item result-item">
+                                <span class="highlight-label"><i class="fa-solid fa-trophy"></i> Verified Result</span>
+                                <span class="highlight-val">Recaptured 6.5% excess oil loss, saving ₹18 Lakhs annually in raw material costs.</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="contact.html" class="project-card-btn">Discuss Similar Setup <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/919023979663?text=Hello%20KGC,%20I%20am%20interested%20in%20a%20Namkeen%20Cost%20Control%20Consultancy%20Project" target="_blank" class="project-card-wa"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Spices Grinding Unjha -->
+                <div class="project-showcase-card project-item" data-category="spices-flour">
+                    <div class="project-showcase-media">
+                        <img src="assets/project_spices_unjha.jpg" alt="Automated Spices Grinding & Sorting Plant in Unjha" loading="lazy">
+                        <div class="project-location-badge">
+                            <i class="fa-solid fa-location-dot"></i> Unjha, Mehsana
+                        </div>
+                    </div>
+                    <div class="project-showcase-body">
+                        <div class="project-tag">Spices & Export Seasoning Unit</div>
+                        <h3 class="project-showcase-title">Spices Grinding & Automated Packaging Project in Unjha</h3>
+                        <p class="project-showcase-desc">
+                            Plant modernization and closed-loop process automation for a bulk spices processing plant in Unjha. Designed cyclone dust-recovery manifolds, balanced pulverizer heat zones, and synchronized color sorter feeds with automatic packaging.
+                        </p>
+                        <div class="project-highlight-box">
+                            <div class="project-highlight-item">
+                                <span class="highlight-label"><i class="fa-solid fa-bullseye"></i> Key Challenge</span>
+                                <span class="highlight-val">Airborne fine dust loss during grinding and manual packing bottlenecks.</span>
+                            </div>
+                            <div class="project-highlight-item result-item">
+                                <span class="highlight-label"><i class="fa-solid fa-trophy"></i> Verified Result</span>
+                                <span class="highlight-val">Recovered 8.2% fine spice dust and boosted daily packing throughput by 28%.</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="contact.html" class="project-card-btn">Discuss Similar Setup <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/919023979663?text=Hello%20KGC,%20I%20am%20interested%20in%20a%20Spices%20Processing%20Consultancy%20Project" target="_blank" class="project-card-wa"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Bakery PPC Rajkot -->
+                <div class="project-showcase-card project-item" data-category="snacks">
+                    <div class="project-showcase-media">
+                        <img src="assets/project_bakery_rajkot.jpg" alt="High-Speed Bakery & Biscuit PPC Project in Rajkot" loading="lazy">
+                        <div class="project-location-badge">
+                            <i class="fa-solid fa-location-dot"></i> Rajkot, Gujarat
+                        </div>
+                    </div>
+                    <div class="project-showcase-body">
+                        <div class="project-tag">Automatic Bakery Production</div>
+                        <h3 class="project-showcase-title">High-Speed Biscuit & Bakery PPC Project in Rajkot</h3>
+                        <p class="project-showcase-desc">
+                            Production Planning and Control (PPC) and line balancing implementation for a high-volume biscuit manufacturer in Rajkot. Re-engineered tunnel oven cooling conveyor speeds and automated flow-wrap changeovers.
+                        </p>
+                        <div class="project-highlight-box">
+                            <div class="project-highlight-item">
+                                <span class="highlight-label"><i class="fa-solid fa-bullseye"></i> Key Challenge</span>
+                                <span class="highlight-val">Cooling conveyor backpressure and 45-minute packaging line changeover delays.</span>
+                            </div>
+                            <div class="project-highlight-item result-item">
+                                <span class="highlight-label"><i class="fa-solid fa-trophy"></i> Verified Result</span>
+                                <span class="highlight-val">Slashed changeover idle time by 35% and achieved a 98.5% on-time dispatch rate.</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="contact.html" class="project-card-btn">Discuss Similar Setup <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/919023979663?text=Hello%20KGC,%20I%20am%20interested%20in%20a%20Bakery%20PPC%20Consultancy%20Project" target="_blank" class="project-card-wa"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Edible Oil Packaging Kandla -->
+                <div class="project-showcase-card project-item" data-category="liquids-oils">
+                    <div class="project-showcase-media">
+                        <img src="assets/project_oil_kandla.jpg" alt="Edible Oil Packaging & Yield Project in Kandla" loading="lazy">
+                        <div class="project-location-badge">
+                            <i class="fa-solid fa-location-dot"></i> Kandla / Gandhidham
+                        </div>
+                    </div>
+                    <div class="project-showcase-body">
+                        <div class="project-tag">Edible Oil Refinery & Packaging</div>
+                        <h3 class="project-showcase-title">Edible Oil Refinery & Packaging Wastage Project in Kandla</h3>
+                        <p class="project-showcase-desc">
+                            Packaging line yield optimization and scrap audit for an edible oil packaging facility near Kandla. Fine-tuned multi-track FFS pouch filling sealers, automated secondary corrugated casing, and standardized fill weights.
+                        </p>
+                        <div class="project-highlight-box">
+                            <div class="project-highlight-item">
+                                <span class="highlight-label"><i class="fa-solid fa-bullseye"></i> Key Challenge</span>
+                                <span class="highlight-val">High pouch burst rate on high-speed lines and roll-film scrap.</span>
+                            </div>
+                            <div class="project-highlight-item result-item">
+                                <span class="highlight-label"><i class="fa-solid fa-trophy"></i> Verified Result</span>
+                                <span class="highlight-val">Eliminated fill volume discrepancies and reduced pouch film scrap by 4.2%.</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="contact.html" class="project-card-btn">Discuss Similar Setup <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/919023979663?text=Hello%20KGC,%20I%20am%20interested%20in%20an%20Edible%20Oil%20Plant%20Project" target="_blank" class="project-card-wa"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Extruded Snacks Morbi -->
+                <div class="project-showcase-card project-item" data-category="snacks">
+                    <div class="project-showcase-media">
+                        <img src="assets/project_snacks_morbi.jpg" alt="Extruded Snacks & Fryums Quality Project in Morbi" loading="lazy">
+                        <div class="project-location-badge">
+                            <i class="fa-solid fa-location-dot"></i> Morbi, Gujarat
+                        </div>
+                    </div>
+                    <div class="project-showcase-body">
+                        <div class="project-tag">Extruded Snacks & Pellets</div>
+                        <h3 class="project-showcase-title">Extruded Snacks & Fryums Quality Compliance in Morbi</h3>
+                        <p class="project-showcase-desc">
+                            Turnkey quality engineering and compliance project for an extruded snacks and fryums factory in Morbi. Standardized twin-screw extruder heat zones, multi-deck belt dryer airflow, and automated slurry flavoring drums.
+                        </p>
+                        <div class="project-highlight-box">
+                            <div class="project-highlight-item">
+                                <span class="highlight-label"><i class="fa-solid fa-bullseye"></i> Key Challenge</span>
+                                <span class="highlight-val">Moisture inconsistency across batches and high breakage during seasoning.</span>
+                            </div>
+                            <div class="project-highlight-item result-item">
+                                <span class="highlight-label"><i class="fa-solid fa-trophy"></i> Verified Result</span>
+                                <span class="highlight-val">Achieved zero-defect batch consistency and 100% compliance in food safety audit.</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="contact.html" class="project-card-btn">Discuss Similar Setup <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/919023979663?text=Hello%20KGC,%20I%20am%20interested%20in%20an%20Extruded%20Snacks%20Plant%20Project" target="_blank" class="project-card-wa"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Sauce & Ketchup Anand -->
+                <div class="project-showcase-card project-item" data-category="liquids-oils">
+                    <div class="project-showcase-media">
+                        <img src="assets/project_sauce_anand.jpg" alt="Automated Tomato Ketchup & Sauce Line in Anand" loading="lazy">
+                        <div class="project-location-badge">
+                            <i class="fa-solid fa-location-dot"></i> Anand, Gujarat
+                        </div>
+                    </div>
+                    <div class="project-showcase-body">
+                        <div class="project-tag">Condiments & Sauce Processing</div>
+                        <h3 class="project-showcase-title">Automated Tomato Ketchup & Sauce Processing in Anand</h3>
+                        <p class="project-showcase-desc">
+                            Thermal efficiency and process automation consultation for a commercial condiment and sauce manufacturing facility in Anand. Upgraded steam jacketed cooking kettles, automated vacuum de-aeration, and sterile hot-fill bottling piping.
+                        </p>
+                        <div class="project-highlight-box">
+                            <div class="project-highlight-item">
+                                <span class="highlight-label"><i class="fa-solid fa-bullseye"></i> Key Challenge</span>
+                                <span class="highlight-val">Steam energy dissipation and inconsistent batch viscosity.</span>
+                            </div>
+                            <div class="project-highlight-item result-item">
+                                <span class="highlight-label"><i class="fa-solid fa-trophy"></i> Verified Result</span>
+                                <span class="highlight-val">Improved batch yield by 8.4% while reducing boiler steam energy costs by 19%.</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="contact.html" class="project-card-btn">Discuss Similar Setup <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/919023979663?text=Hello%20KGC,%20I%20am%20interested%20in%20a%20Sauce%20Ketchup%20Plant%20Project" target="_blank" class="project-card-wa"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Roller Flour Mill Ahmedabad -->
+                <div class="project-showcase-card project-item" data-category="spices-flour">
+                    <div class="project-showcase-media">
+                        <img src="assets/project_flour_mill_ahmedabad.jpg" alt="Commercial Roller Flour Mill Yield Project in Ahmedabad" loading="lazy">
+                        <div class="project-location-badge">
+                            <i class="fa-solid fa-location-dot"></i> Ahmedabad, Gujarat
+                        </div>
+                    </div>
+                    <div class="project-showcase-body">
+                        <div class="project-tag">Wheat Milling & Chakki Atta</div>
+                        <h3 class="project-showcase-title">Commercial Roller Flour Mill Yield Project in Ahmedabad</h3>
+                        <p class="project-showcase-desc">
+                            Milling yield optimization and audit for a commercial wheat flour mill and packaged chakki atta plant in Ahmedabad. Calibrated break-roll clearances, balanced plansifter sieve flows, and deployed digital shift DPR tracking.
+                        </p>
+                        <div class="project-highlight-box">
+                            <div class="project-highlight-item">
+                                <span class="highlight-label"><i class="fa-solid fa-bullseye"></i> Key Challenge</span>
+                                <span class="highlight-val">High bran carryover and motor overload during peak shift milling.</span>
+                            </div>
+                            <div class="project-highlight-item result-item">
+                                <span class="highlight-label"><i class="fa-solid fa-trophy"></i> Verified Result</span>
+                                <span class="highlight-val">Increased flour extraction yield by 2.8%, generating over ₹24 Lakhs annual gross profit addition.</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="contact.html" class="project-card-btn">Discuss Similar Setup <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://wa.me/919023979663?text=Hello%20KGC,%20I%20am%20interested%20in%20a%20Flour%20Mill%20Consultancy%20Project" target="_blank" class="project-card-wa"><i class="fa-brands fa-whatsapp"></i> Inquire</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA Callout -->
+    <section class="section" style="background: #ffffff; padding: 4rem 0;">
+        <div class="container text-center" style="max-width: 800px;">
+            <h2 style="font-size: 2rem; color: #0f2b46; margin-top: 0; margin-bottom: 0.75rem;">Planning a New Manufacturing Plant?</h2>
+            <p style="font-size: 1.05rem; color: #4a5568; margin-bottom: 2rem; line-height: 1.6;">
+                From machine selection and plant layout to food safety licenses and cost control audits, our engineering team helps you build a profitable, bottleneck-free factory.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary" style="border-radius: 0;">Schedule Project Discussion <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://wa.me/919023979663" target="_blank" class="btn btn-outline" style="border-radius: 0;"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-root"></div>
+    <div id="popup-root"></div>
+
+    <script src="components.js"></script>
+    <script src="main.js"></script>
+
+    <!-- Project Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.project-filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    projectItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
