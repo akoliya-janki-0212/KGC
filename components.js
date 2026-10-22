@@ -11,13 +11,9 @@ window.KGC_COMPONENTS = {
     <div class="container nav-container">
         <div class="logo">
             <a href="index.html">
-                <img src="assets/logo.png" alt="KGC Logo" style="height: 60px; width: auto; display: block;">
+                <img src="assets/logo.png" alt="KGC Logo" class="nav-logo-img" style="height: 60px; width: auto; display: block;">
             </a>
         </div>
-
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
 
         <nav class="main-nav">
             <ul class="nav-links">
@@ -29,6 +25,10 @@ window.KGC_COMPONENTS = {
                 <li><a href="contact.html" class="btn btn-secondary nav-cta cta-trigger">Consultation</a></li>
             </ul>
         </nav>
+
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </div>
 </header>
 `,
