@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const prevBtn = document.querySelector('.prev-slide');
         const nextBtn = document.querySelector('.next-slide');
 
-        if (slides.length === 0) return;
+        if (slides.length <= 1) return;
 
         let currentSlide = 0;
         let slideInterval;

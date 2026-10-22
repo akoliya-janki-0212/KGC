@@ -11,7 +11,7 @@ window.KGC_COMPONENTS = {
     <div class="container nav-container">
         <div class="logo">
             <a href="index.html">
-                <img src="assets/logo.png" alt="KGC Logo" style="height: 70px; width: auto; display: block;">
+                <img src="assets/logo.png" alt="KGC Logo" style="height: 60px; width: auto; display: block;">
             </a>
         </div>
 
@@ -22,7 +22,6 @@ window.KGC_COMPONENTS = {
         <nav class="main-nav">
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <!-- <li><a href="coaching.html">Coaching Academy</a></li> -->
                 <li><a href="projects.html">Projects</a></li>
@@ -65,7 +64,6 @@ window.KGC_COMPONENTS = {
             <h4>Quick Links</h4>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">All Services</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Book Business Review</a></li>

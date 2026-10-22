@@ -19,310 +19,226 @@
 </head>
 
 <body>
-
-    <!-- Top Visitor Banner -->
-    <div class="top-banner" id="visitor-banner">
-        <div class="banner-content container">
-            <div class="banner-text">
-                <i class="fa-solid fa-eye mr-2" style="color: var(--color-accent); font-size: 1.1rem;"></i>
-                <span style="opacity: 0.9;">Website Views: </span>
-                <span id="visitor-count" class="countdown-timer" style="margin: 0 8px; font-size: 1rem;">-----</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Visitor Count Logic -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Base Date for our count accumulation logic
-            const baseDate = new Date('2026-03-01T00:00:00').getTime();
-            const now = new Date().getTime();
-
-            // Calculate total days passed
-            const daysPassed = Math.floor((now - baseDate) / (1000 * 60 * 60 * 24));
-
-            // Starting believable visitor base + incrementing 2 per day automatically
-            let baseCount = 18456;
-            let targetCount = baseCount + (Math.max(0, daysPassed) * 2);
-
-            // Small subtle randomness
-            const hourOffset = new Date().getHours() % 4;
-            targetCount += hourOffset;
-
-            const counterElement = document.getElementById('visitor-count');
-            let currentCount = 0; // Starting from 0 as requested
-
-            const formatNumber = (num) => new Intl.NumberFormat('en-IN').format(num);
-
-            function animate() {
-                // Phase 1: Intro (0 to 100) - Show steps of 5
-                if (currentCount < 100) {
-                    currentCount += 5;
-                    counterElement.innerText = formatNumber(currentCount);
-                    setTimeout(animate, 60);
-                }
-                // Phase 2: Rapid Acceleration (to near target)
-                else if (currentCount < targetCount - 60) {
-                    const jump = Math.ceil((targetCount - currentCount) / 12);
-                    currentCount += jump;
-                    counterElement.innerText = formatNumber(currentCount);
-                    setTimeout(animate, 25);
-                }
-                // Phase 3: Outro (Slow down at the end)
-                else if (currentCount < targetCount) {
-                    currentCount += 1;
-                    counterElement.innerText = formatNumber(currentCount);
-
-                    const remaining = targetCount - currentCount;
-                    // Progressive delay for that "slow down" feel
-                    const delay = 180 - (remaining * 2);
-                    setTimeout(animate, Math.max(100, delay));
-                }
-                else {
-                    counterElement.innerText = formatNumber(targetCount);
-                }
-            }
-
-            animate();
-        });
-    </script>
     <div id="header-root"></div>
 
     <!-- Hero Section: Consultant-First Rebrand -->
     <section id="home" class="hero">
         <div class="hero-slider-container">
             <div class="hero-slider">
-                <div class="hero-slide active" style="background-image: url('assets/slider1.png');"></div>
-                <div class="hero-slide" style="background-image: url('assets/slider2.png');"></div>
-                <div class="hero-slide" style="background-image: url('assets/slider3.png');"></div>
-            </div>
-
-            <div class="hero-slider-nav">
-                <div class="slider-dot active" data-slide="0"></div>
-                <div class="slider-dot" data-slide="1"></div>
-                <div class="slider-dot" data-slide="2"></div>
-            </div>
-
-            <div class="hero-slider-arrows">
-                <div class="slider-arrow prev-slide"><i class="fa-solid fa-chevron-left"></i></div>
-                <div class="slider-arrow next-slide"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-        </div>
-
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h2 class="hero-title">End-to-End Plant Efficiency & Quality Solutions</h2>
-                <h3 class="hero-subtitle-small d-block mb-0 text-white fw-medium">Cost Control • Production Planning (PPC) • Quality Audit • Yield Optimization • Compliance • MIS</h3>
+                <!-- Er. Keval Gandhi Consultant Profile Banner -->
+                <div class="hero-slide active" style="background-image: url('assets/slider1.png');">
+                    <div class="container hero-slide-container slide-left">
+                        <div class="hero-content hero-content-left">
+                            <h1 class="hero-title hero-title-left hero-title-stacked">
+                                <span>Food</span>
+                                <span>Industries</span>
+                                <span>Consultant</span>
+                            </h1>
+                            <h3 class="hero-subtitle-small hero-subtitle-left d-block mb-0 text-white fw-medium" style="text-align: left;">Cost Control • Production Planning (PPC) • Quality Audit • Yield Optimization • Compliance • MIS</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
 
-    <!-- Detailed Who We Are / Expertise Section -->
-    <section class="section">
+    <!-- =========================================================================
+         1. Executive Positioning & Strategic Overview
+         ========================================================================= -->
+    <section class="section executive-intro-section" style="padding: 4.5rem 0; background: #ffffff; border-bottom: 1px solid #edf2f7;">
         <div class="container">
-            <div class="split-layout align-center">
-                <div class="image-column">
-                    <div class="glass-card stat-card stat-1">
-                        <div class="stat-icon"><i class="fa-solid fa-user-tie"></i></div>
-                        <div class="stat-text">
-                            <span class="stat-value" style="font-size: 1.2rem;">Er. Keval Gandhi</span>
+            <div class="split-layout align-center" style="gap: 4rem;">
+                <div class="content-column">
+                    <h2 class="section-title" style="font-size: clamp(1.25rem, 2.2vw, 1.875rem); margin-bottom: 18px; color: #0f2b46; line-height: 1.25;">
+                        Turning Food Industry Challenges Into <span style="color: var(--color-primary);">Business Opportunities</span>
+                    </h2>
+                    <p style="font-size: 1.05rem; line-height: 1.75; color: #334155; margin-bottom: 1rem; text-align: justify;">
+                        I work at the intersection of food manufacturing, process engineering, cost management and business strategy — helping food businesses make better operational decisions and build stronger manufacturing systems.
+                    </p>
+                    <p style="font-size: 0.98rem; line-height: 1.7; color: #475569; margin-bottom: 1.5rem; text-align: justify;">
+                        My approach focuses on understanding how a manufacturing business actually operates: what it produces, what it costs, where resources are being lost, how efficiently production runs, and where opportunities for improvement exist.
+                    </p>
+                    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid var(--color-primary); padding: 14px 20px; margin-bottom: 2rem; border-radius: 0 4px 4px 0;">
+                        <span style="font-size: 1rem; font-weight: 700; color: #0f2b46; display: block; letter-spacing: 0.2px;">
+                            Know Your Actual Cost. Control Your Losses. Improve Your Profitability.
+                        </span>
+                    </div>
+                </div>
+                <div class="image-column" style="width: 100%;">
+                    <div style="position: relative; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);">
+                        <img src="assets/factory_setup.png" alt="Food Manufacturing Plant Engineering - Keval Gandhi" style="width: 100%; height: auto; display: block;">
+                        <div style="position: absolute; bottom: 0; inset-inline: 0; background: linear-gradient(to top, rgba(15, 43, 70, 0.92) 0%, transparent 100%); padding: 24px;">
+                            <span style="color: white; font-size: 1rem; font-weight: 700; letter-spacing: 0.5px; display: block;">Manufacturing Architecture & Strategy</span>
+                            <span style="color: rgba(255, 255, 255, 0.85); font-size: 0.85rem;">Cost Systems • Plant Layout</span>
                         </div>
                     </div>
-                    <img src="assets/keval-gandhi.png" alt="Er. Keval Gandhi - Consultant" class="rounded-img shadow-lg"
-                        width="500" height="500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         2. About Keval Gandhi
+         ========================================================================= -->
+    <section class="section" id="about-keval-gandhi" style="background: #ffffff;">
+        <div class="container">
+            <div class="split-layout" style="align-items: flex-start; gap: 4rem;">
+                <div class="image-column" style="display: flex; flex-direction: column; gap: 1.5rem; align-items: stretch; width: 100%;">
+                    <img src="assets/keval-gandhi.png" alt="Er. Keval Gandhi - Food Industry Consultant" class="shadow-lg" style="border-radius: 0; width: 100%; max-width: 500px; height: auto; display: block;" width="500" height="500">
+                    
+                    <!-- 3 Essential Elements Box -->
+                    <div style="background: #ffffff; border: 1px solid #e2e8f0; padding: 20px; border-radius: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                        <p style="font-size: 0.95rem; font-weight: 700; color: #0f2b46; margin-bottom: 12px;">
+                            I believe successful manufacturing combines three essential elements:
+                        </p>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-top: 3px solid var(--color-primary); padding: 12px 8px; text-align: center;">
+                                <i class="fa-solid fa-gears" style="color: var(--color-primary); margin-bottom: 6px; display: block; font-size: 1.1rem;"></i>
+                                <span style="font-weight: 700; font-size: 0.82rem; color: #1e293b; display: block; line-height: 1.3;">The Right Process</span>
+                            </div>
+                            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-top: 3px solid var(--color-primary); padding: 12px 8px; text-align: center;">
+                                <i class="fa-solid fa-calculator" style="color: var(--color-primary); margin-bottom: 6px; display: block; font-size: 1.1rem;"></i>
+                                <span style="font-weight: 700; font-size: 0.82rem; color: #1e293b; display: block; line-height: 1.3;">The Right Cost Structure</span>
+                            </div>
+                            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-top: 3px solid var(--color-primary); padding: 12px 8px; text-align: center;">
+                                <i class="fa-solid fa-network-wired" style="color: var(--color-primary); margin-bottom: 6px; display: block; font-size: 1.1rem;"></i>
+                                <span style="font-weight: 700; font-size: 0.82rem; color: #1e293b; display: block; line-height: 1.3;">The Right Management System</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-column">
                     <div class="badge-pill-wrapper">
-                        <span class="badge-pill">ABOUT THE CONSULTANT</span>
+                        <span class="badge-pill">ABOUT KEVAL GANDHI</span>
                     </div>
-                    <h2 class="section-title" style="margin-bottom: 16px;">Helping Businesses Grow Smoothly</h2>
+                    <h2 class="section-title" style="margin-bottom: 18px; color: #0f2b46;">
+                        Practical Thinking. Engineering Perspective. <span style="color: var(--color-primary);">Business-Focused Solutions.</span>
+                    </h2>
 
-                    <p class="section-description">
-                        Er. Keval Gandhi has over 15 years of experience helping factory and business owners
-                        manage and grow their businesses. From starting a new idea to building a complete system,
-                        he provides practical support at every step.
+                    <p class="section-description" style="margin-bottom: 14px; text-align: justify;">
+                        Food manufacturing is more than producing a product. It requires the right processes, suitable machinery, disciplined cost management, efficient operations and a clear understanding of profitability.
                     </p>
 
-                    <p class="section-description">
-                        The goal is simple — to create a business that runs smoothly, saves time, and grows
-                        without depending on the owner for every small decision.
+                    <p class="section-description" style="margin-bottom: 14px; text-align: justify;">
+                        My professional focus is on helping food businesses approach these challenges systematically — from planning a new manufacturing facility to reviewing the performance of an existing operation.
                     </p>
-                    <a href="about.html" class="btn btn-outline mt-4">
-                        Learn More
-                    </a>
+
+                    <p class="section-description" style="margin-bottom: 0; text-align: justify;">
+                        Through food industry consultancy, manufacturing planning and cost management, I aim to help businesses make informed decisions, improve operational visibility and establish systems that support sustainable growth.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Company Section -->
-    <section class="kgc-division-section bg-light" id="about-company">
+    <!-- =========================================================================
+         3. Consulting Expertise
+         ========================================================================= -->
+    <section class="kgc-division-section" id="consulting-expertise">
         <div class="kgc-container">
-            <div class="kgc-header text-center" style="margin-bottom: 25px;">
-                <div class="badge-pill-wrapper">
-                    <span class="badge-pill">ABOUT COMPANY</span>
-                </div>
-                <h2 class="section-title">KGC Private Limited</h2>
-            </div>
-
-            <div class="about-company-content" style="max-width: 1100px; margin: 0 auto;">
-                <!-- Main Executive Overview -->
-                <p style="font-size: 1.05rem; line-height: 1.8; color: #2d3748; margin-bottom: 1.25rem;">
-                    <strong>KGC Private Limited (KGCPL)</strong> is one of India's premier <strong>Plant Efficiency & Quality Solutions</strong> consulting firms. Since our establishment in 2008, we have been delivering measurable, result-oriented industrial consultancy across a wide range of processing and manufacturing industries. We specialize in operational audits, process engineering, and efficiency advisory for sectors including food and beverages, pharmaceuticals (API), cosmetics, chemicals, FMCG, agro-processing, marine, dairy, meat processing, and general manufacturing industries.
-                </p>
-                <p style="font-size: 0.98rem; line-height: 1.75; color: #4a5568; margin-bottom: 1.25rem;">
-                    Our core consulting practice is strictly focused on solving manufacturing bottlenecks, eliminating profit leaks, and creating self-managed factory operations through our <strong>Main Consulting Services</strong>: 
-                    <strong>Cost Control Audits</strong> (reducing direct factory operating costs, eliminating hidden expenses, and controlling material variance); 
-                    <strong>Production Planning & Control - PPC</strong> (synchronizing production schedules to achieve reliable, on-time order delivery); 
-                    <strong>Quality Audits</strong> (setting up zero-defect standards, in-process inspections, and structured corrective actions); 
-                    <strong>Wastage & Yield Optimization</strong> (recovering raw material losses, reducing scrap, and maximizing finished product yield); 
-                    <strong>Food Safety & Compliance</strong> (comprehensive regulatory and licensing guidance for FSSAI, FDA, ISO 22000, and HACCP standards across Gujarat, Mumbai, Kolkata, and Pan-India); and 
-                    <strong>MIS & Performance Dashboards</strong> (setting up automated daily production reports and live machine efficiency tracking).
-                </p>
-                <p style="font-size: 0.98rem; line-height: 1.75; color: #4a5568; margin-bottom: 2rem;">
-                    As recipients of several prestigious awards in the processing and packaging industry, our seasoned team of engineers and technical advisors brings extensive shop-floor experience across technologies such as extrusion, dehydration, pulping, concentration, retort processing, freezing, and modern automated packaging lines. We work directly on the operational floor to implement actionable systems that drive long-term profitability and sustainable growth.
-                </p>
-
-                <!-- Call to action bar -->
-                <div style="text-align: center; margin-top: 1rem;">
-                    <a href="services.html" class="btn btn-primary" style="margin-right: 12px;">Explore All Services <i class="fa-solid fa-arrow-right"></i></a>
-                    <button class="btn btn-outline cta-trigger">Schedule Plant Consultation</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Main Consulting Services Section -->
-    <section class="kgc-division-section" id="core-services">
-        <div class="kgc-container">
-            <div class="section-header text-center">
-                <div class="badge-pill-wrapper">
-                    <span class="badge-pill">CORE CONSULTING SERVICES</span>
-                </div>
-                <h2 class="section-title">End-to-End Plant Efficiency & Quality Solutions</h2>
-                <p class="description" style="max-width: 800px; margin: 18px auto 2.5rem; font-size: 1.02rem; color: #4A5568;">
-                    Result-oriented consultancy across core operational pillars - driving cost reduction, synchronized production flow, quality compliance, and data-driven manufacturing leadership.
-                </p>
+            <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+                <h2 class="section-title">CONSULTING EXPERTISE</h2>
             </div>
             <div class="kgc-grid">
 
-                <!-- Service 1: Cost Control Audit -->
+                <!-- 1. Cost Control & Profitability Audit -->
                 <div class="kgc-card">
                     <div style="position: relative; overflow: hidden;">
-                        <img src="assets/service_cost_control.jpg" alt="Cost Control Audit - KGC Private Limited" loading="lazy">
+                        <img src="assets/service_cost_control.jpg" alt="Food Industry Cost Control & Profitability Audit" loading="lazy">
                     </div>
                     <div class="kgc-card-content">
-                        <h3>Cost Control Audit</h3>
-                        <p>Eliminate hidden profit leaks and operational variances across raw materials, energy, utilities, labor, and machine downtime. We build actionable unit cost models to lower your factory operating expenses and eliminate waste.</p>
+                        <h3>1. Food Industry Cost Control & Profitability Audit</h3>
+                        <p>Identify cost leakages and understand the actual economics of manufacturing through raw material analysis, production costing, packaging costs, wastage monitoring, manpower and utility expenses, product-wise profitability and corrective action planning.</p>
                         <ul class="kgc-card-features">
-                            <li><i class="fa-solid fa-circle-check"></i> BOM vs. Actual Consumption Variance</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Energy, Steam & Utility Cost Audits</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Labor Productivity & Manning Rationalization</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Raw Material & Wastage Costing</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Packaging, Manpower & Utility Expenses</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Product-wise Profitability & Action Plan</li>
                         </ul>
                         <div class="kgc-card-footer">
-                            <a href="services.html#cost-control" class="kgc-service-link">EXPLORE SERVICE →</a>
-                            <button class="btn btn-sm btn-primary cta-trigger">Book Audit</button>
+                            <a href="services.html#cost-control" class="kgc-service-link">LEARN MORE →</a>
+                            <button class="btn btn-sm btn-primary cta-trigger">Discuss Project</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Service 2: Production Planning & Control -->
+                <!-- 2. Turnkey Food Processing Projects -->
                 <div class="kgc-card">
                     <div style="position: relative; overflow: hidden;">
-                        <img src="assets/service_ppc.jpg" alt="Production Planning & Control (PPC) - KGC Private Limited" loading="lazy">
+                        <img src="assets/turnkey_consultant.png" alt="Turnkey Food Processing Projects" loading="lazy">
                     </div>
                     <div class="kgc-card-content">
-                        <h3>Production Planning & Control</h3>
-                        <p>End shop-floor chaos with synchronized Master Production Scheduling (MPS), bottleneck identification, and line balancing. Achieve dependable, on-time, in-full order delivery without constant manual firefighting.</p>
+                        <h3>2. Turnkey Food Processing Projects</h3>
+                        <p>Support project planning through process selection, plant layout, machinery planning, utilities coordination, vendor coordination, installation supervision and commissioning support.</p>
                         <ul class="kgc-card-features">
-                            <li><i class="fa-solid fa-circle-check"></i> Master Production Scheduling (MPS)</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Bottleneck Elimination & SMED Changeovers</li>
-                            <li><i class="fa-solid fa-circle-check"></i> WIP & Finished Goods Inventory Sizing</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Process Selection & Plant Layout</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Machinery & Utilities Planning</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Vendor Coordination & Commissioning</li>
                         </ul>
                         <div class="kgc-card-footer">
-                            <a href="services.html#ppc" class="kgc-service-link">EXPLORE SERVICE →</a>
-                            <button class="btn btn-sm btn-primary cta-trigger">Book Audit</button>
+                            <a href="projects.html" class="kgc-service-link">LEARN MORE →</a>
+                            <button class="btn btn-sm btn-primary cta-trigger">Discuss Project</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Service 3: Quality Audit -->
+                <!-- 3. Manufacturing Process Engineering -->
                 <div class="kgc-card">
                     <div style="position: relative; overflow: hidden;">
-                        <img src="assets/service_quality_audit.jpg" alt="Quality Audit - KGC Private Limited" loading="lazy">
+                        <img src="assets/service_yield_optimization.jpg" alt="Manufacturing Process Engineering" loading="lazy">
                     </div>
                     <div class="kgc-card-content">
-                        <h3>Quality Audit</h3>
-                        <p>Ensure consistent product quality through robust In-Process Quality Controls (IPQC), good manufacturing practices (GMP), and structured root-cause solutions that prevent defective batches.</p>
+                        <h3>3. Manufacturing Process Engineering</h3>
+                        <p>Evaluate production workflows, capacity utilisation, process efficiency and operational bottlenecks to identify practical improvement opportunities.</p>
                         <ul class="kgc-card-features">
-                            <li><i class="fa-solid fa-circle-check"></i> IPQC & Receiving Inspection Gateways</li>
-                            <li><i class="fa-solid fa-circle-check"></i> GMP/GHP Assessment & Gap Rectification</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Defect Pareto & CAPA / 8D Implementation</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Production Workflow Evaluation</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Capacity Utilisation & Balancing</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Bottleneck Elimination & Flow Control</li>
                         </ul>
                         <div class="kgc-card-footer">
-                            <a href="services.html#quality-audit" class="kgc-service-link">EXPLORE SERVICE →</a>
-                            <button class="btn btn-sm btn-primary cta-trigger">Book Audit</button>
+                            <a href="services.html#process-engineering" class="kgc-service-link">LEARN MORE →</a>
+                            <button class="btn btn-sm btn-primary cta-trigger">Discuss Project</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Service 4: Wastage & Yield Optimization -->
+                <!-- 4. Product Costing & Management Information Systems -->
                 <div class="kgc-card">
                     <div style="position: relative; overflow: hidden;">
-                        <img src="assets/service_yield_optimization.jpg" alt="Wastage & Yield Optimization - KGC Private Limited" loading="lazy">
+                        <img src="assets/service_mis_dashboard.jpg" alt="Product Costing & Management Information Systems" loading="lazy">
                     </div>
                     <div class="kgc-card-content">
-                        <h3>Wastage & Yield Optimization</h3>
-                        <p>Maximize raw-material-to-finished-product conversion ratios. Through systematic material loss tracking and machine process tuning, we recover valuable lost material across processing and packaging lines.</p>
+                        <h3>4. Product Costing & Management Information Systems</h3>
+                        <p>Develop structured product costing, standard costing, SKU-wise cost sheets, management reports and monitoring systems that help management understand manufacturing performance.</p>
                         <ul class="kgc-card-features">
-                            <li><i class="fa-solid fa-circle-check"></i> Mass Balance & Material Loss Accounting</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Extraction, Extrusion & Drying Yield Gains</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Packaging Film & Giveaway Minimization</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Structured Standard Costing Models</li>
+                            <li><i class="fa-solid fa-circle-check"></i> SKU-wise Dynamic Cost Sheets</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Real-time Management Reporting (MIS)</li>
                         </ul>
                         <div class="kgc-card-footer">
-                            <a href="services.html#wastage-yield" class="kgc-service-link">EXPLORE SERVICE →</a>
-                            <button class="btn btn-sm btn-primary cta-trigger">Book Audit</button>
+                            <a href="services.html#mis-dashboard" class="kgc-service-link">LEARN MORE →</a>
+                            <button class="btn btn-sm btn-primary cta-trigger">Discuss Project</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Service 5: Food Safety & Compliance -->
+                <!-- 5. Food Business Strategy & Project Feasibility -->
                 <div class="kgc-card">
                     <div style="position: relative; overflow: hidden;">
-                        <img src="assets/service_food_safety.jpg" alt="Food Safety & Compliance - KGC Private Limited" loading="lazy">
+                        <img src="assets/food_consultant.png" alt="Food Business Strategy & Project Feasibility" loading="lazy">
                     </div>
                     <div class="kgc-card-content">
-                        <h3>Food Safety & Compliance</h3>
-                        <p>Complete regulatory advisory ensuring full adherence to FSSAI (Central/State), FDA, ISO 22000, HACCP, and BRCGS standards across Gujarat, Mumbai, Kolkata, and Pan-India with zero audit non-conformances.</p>
+                        <h3>5. Food Business Strategy & Project Feasibility</h3>
+                        <p>Support business owners and entrepreneurs with manufacturing feasibility, capacity planning, project evaluation and operational planning.</p>
                         <ul class="kgc-card-features">
-                            <li><i class="fa-solid fa-circle-check"></i> FSSAI Licensing, Approvals & Labelling Compliance</li>
-                            <li><i class="fa-solid fa-circle-check"></i> HACCP, ISO 22000 & BRCGS Audit Readiness</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Allergen Control, Hygiene Zoning & CIP Validation</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Manufacturing Feasibility Studies</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Strategic Capacity & Capex Planning</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Comprehensive Operational Roadmaps</li>
                         </ul>
                         <div class="kgc-card-footer">
-                            <a href="services.html#food-safety" class="kgc-service-link">EXPLORE SERVICE →</a>
-                            <button class="btn btn-sm btn-primary cta-trigger">Book Audit</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 6: MIS & Performance Dashboard -->
-                <div class="kgc-card">
-                    <div style="position: relative; overflow: hidden;">
-                        <img src="assets/service_mis_dashboard.jpg" alt="MIS & Performance Dashboard - KGC Private Limited" loading="lazy">
-                    </div>
-                    <div class="kgc-card-content">
-                        <h3>MIS & Performance Dashboard</h3>
-                        <p>Replace paper reports and guesswork with real-time manufacturing intelligence. We deploy automated Daily Production Reports (DPR), live OEE metrics, and executive decision dashboards accessible anywhere.</p>
-                        <ul class="kgc-card-features">
-                            <li><i class="fa-solid fa-circle-check"></i> Live Overall Equipment Effectiveness (OEE)</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Automated DPR & Shift-Wise Variance Tracking</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Machine Downtime MTBF / MTTR Analytics</li>
-                        </ul>
-                        <div class="kgc-card-footer">
-                            <a href="services.html#mis-dashboard" class="kgc-service-link">EXPLORE SERVICE →</a>
-                            <button class="btn btn-sm btn-primary cta-trigger">Book Audit</button>
+                            <a href="services.html#business-strategy" class="kgc-service-link">LEARN MORE →</a>
+                            <button class="btn btn-sm btn-primary cta-trigger">Discuss Project</button>
                         </div>
                     </div>
                 </div>
@@ -330,192 +246,196 @@
             </div>
         </div>
     </section>
-    <!-- Industries We Can Cover -->
-    <section class="section bg-light">
+
+    <section class="section" id="industries-applications" style="background: #ffffff;">
         <div class="container">
-            <div class="section-header text-center">
-                <div class="badge-pill-wrapper">
-                    <span class="badge-pill">OUR EXPERTISE</span>
-                </div>
-                <h2 class="section-title">Industries We Can Cover</h2>
-                <p class="section-description" style="max-width: 800px; margin: 18px auto 0; font-size: 1.02rem; color: #4A5568;">
-                    Serving a wide spectrum of manufacturing sectors with tailored processing and packaging solutions.
-                </p>
+            <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+                <h2 class="section-title">INDUSTRIES & APPLICATIONS</h2>
             </div>
 
             <div class="grid-3 mt-5" style="gap: 1.5rem;">
-                <!-- 1 Foods -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_industry_food.png" alt="Foods Industry"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+                <!-- 1 Spices & Masala -->
+                <div class="hover-lift" style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default; border: 1px solid #e2e8f0;">
+                    <img src="assets/home_industry_spices.png" alt="Spices, seasonings and masala blending" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.2)); display:flex; align-items:flex-end; padding:1.25rem;">
                         <div>
-                            <i class="fa-solid fa-utensils"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Foods</span>
+                            <i class="fa-solid fa-pepper-hot" style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Spices, Seasonings & Masala Blending</span>
                         </div>
                     </div>
                 </div>
-                <!-- 2 Spices & Lentils -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_industry_spices.png" alt="Spices & Lentils"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+
+                <!-- 2 Premixes & Instant Mixes -->
+                <div class="hover-lift" style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default; border: 1px solid #e2e8f0;">
+                    <img src="assets/home_industry_ready_to_Eat.png" alt="Food premixes and instant mixes" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.2)); display:flex; align-items:flex-end; padding:1.25rem;">
                         <div>
-                            <i class="fa-solid fa-pepper-hot"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Spices & Lentils</span>
+                            <i class="fa-solid fa-bowl-rice" style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Food Premixes & Instant Mixes</span>
                         </div>
                     </div>
                 </div>
-                <!-- 3 Pharmaceutical -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_industry_pharma.png" alt="Pharmaceutical"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+
+                <!-- 3 Packaged foods & FMCG -->
+                <div class="hover-lift" style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default; border: 1px solid #e2e8f0;">
+                    <img src="assets/7_buskut.png" alt="Packaged foods and FMCG products" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.2)); display:flex; align-items:flex-end; padding:1.25rem;">
                         <div>
-                            <i class="fa-solid fa-pills"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Pharmaceutical</span>
+                            <i class="fa-solid fa-box-open" style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Packaged Foods & FMCG Products</span>
                         </div>
                     </div>
                 </div>
-                <!-- 4 API -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_industry_api.png" alt="API Industry"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+
+                <!-- 4 Food Processing & Packaging Facilities -->
+                <div class="hover-lift" style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default; border: 1px solid #e2e8f0;">
+                    <img src="assets/11_automation.png" alt="Food processing and packaging facilities" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.2)); display:flex; align-items:flex-end; padding:1.25rem;">
                         <div>
-                            <i class="fa-solid fa-flask"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">API</span>
+                            <i class="fa-solid fa-industry" style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Food Processing & Packaging Facilities</span>
                         </div>
                     </div>
                 </div>
-                <!-- 5 Pesticide -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_indsutry_pesticide.png" alt="Pesticide Industry"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+
+                <!-- 5 Private Label & Contract Manufacturing -->
+                <div class="hover-lift" style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default; border: 1px solid #e2e8f0;">
+                    <img src="assets/slider2.png" alt="Private label and contract manufacturing" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.2)); display:flex; align-items:flex-end; padding:1.25rem;">
                         <div>
-                            <i class="fa-solid fa-spray-can-sparkles"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Pesticide</span>
+                            <i class="fa-solid fa-handshake" style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">Private Label & Contract Manufacturing</span>
                         </div>
                     </div>
                 </div>
-                <!-- 6 Agriculture -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_indsutry_agro.png" alt="Agriculture"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
+
+                <!-- 6 New Food Manufacturing Project Development -->
+                <div class="hover-lift" style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default; border: 1px solid #e2e8f0;">
+                    <img src="assets/factory_setup.png" alt="New food manufacturing project development" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.2)); display:flex; align-items:flex-end; padding:1.25rem;">
                         <div>
-                            <i class="fa-solid fa-tractor"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Agriculture</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 7 Cosmetic -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_industryr_cosmatic.png" alt="Cosmetic Industry"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
-                        <div>
-                            <i class="fa-solid fa-spa"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Cosmetic</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 8 Chemical -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_chemical.png" alt="Chemical Industry"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
-                        <div>
-                            <i class="fa-solid fa-atom"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Chemical</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 9 Instant Mix & Ready to Eat -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_industry_ready_to_Eat.png" alt="Instant Mix & Ready to Eat"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
-                        <div>
-                            <i class="fa-solid fa-bowl-rice"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Instant Mix & Ready to
-                                Eat</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 10 Detergent Powder -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_industry_detirgent.png" alt="Detergent Powder"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
-                        <div>
-                            <i class="fa-solid fa-soap"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Detergent Powder</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 11 Chocolate -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_industry_chocolate.png" alt="Chocolate Industry"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
-                        <div>
-                            <i class="fa-solid fa-candy-bar"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Chocolate</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 12 Export Industries -->
-                <div class="hover-lift"
-                    style="position:relative; border-radius:0; overflow:hidden; height:220px; cursor:default;">
-                    <img src="assets/home_industry_export.png" alt="Export Industries"
-                        style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <div
-                        style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.15)); display:flex; align-items:flex-end; padding:1.25rem;">
-                        <div>
-                            <i class="fa-solid fa-earth-americas"
-                                style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
-                            <span style="color:white; font-size:1.05rem; font-weight:700;">Export Industries</span>
+                            <i class="fa-solid fa-compass-drafting" style="color:#ffffff; font-size:1.1rem; margin-bottom:0.4rem; display:block;"></i>
+                            <span style="color:white; font-size:1.05rem; font-weight:700;">New Food Manufacturing Project Development</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- =========================================================================
+         5. My Approach
+         ========================================================================= -->
+    <section class="section" id="my-approach" style="background: #ffffff;">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+                <h2 class="section-title">MY APPROACH</h2>
+            </div>
+
+            <div class="approach-grid">
+                <!-- Step 1 -->
+                <div class="approach-card">
+                    <div class="approach-img-wrapper">
+                        <img src="assets/project_spices_unjha.jpg" alt="Understand the Business" loading="lazy">
+                        <span class="approach-number">01</span>
+                    </div>
+                    <div class="approach-body">
+                        <div style="font-size: 0.78rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;">STEP 01</div>
+                        <h3>Understand the Business</h3>
+                        <p>Review the product portfolio, manufacturing process, production capacity and business objectives.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="approach-card">
+                    <div class="approach-img-wrapper">
+                        <img src="assets/service_quality_audit.jpg" alt="Analyse the Current System" loading="lazy">
+                        <span class="approach-number">02</span>
+                    </div>
+                    <div class="approach-body">
+                        <div style="font-size: 0.78rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;">STEP 02</div>
+                        <h3>Analyse the Current System</h3>
+                        <p>Evaluate costs, process flows, resource utilisation, wastage and operational controls.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="approach-card">
+                    <div class="approach-img-wrapper">
+                        <img src="assets/packaging_consultant.jpg" alt="Develop an Action Plan" loading="lazy">
+                        <span class="approach-number">03</span>
+                    </div>
+                    <div class="approach-body">
+                        <div style="font-size: 0.78rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;">STEP 03</div>
+                        <h3>Develop an Action Plan</h3>
+                        <p>Identify improvement priorities and recommend practical, measurable corrective actions.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="approach-card">
+                    <div class="approach-img-wrapper">
+                        <img src="assets/service_mis_dashboard.jpg" alt="Establish Monitoring Systems" loading="lazy">
+                        <span class="approach-number">04</span>
+                    </div>
+                    <div class="approach-body">
+                        <div style="font-size: 0.78rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;">STEP 04</div>
+                        <h3>Establish Monitoring Systems</h3>
+                        <p>Define relevant cost indicators, reports and review mechanisms to help management track progress.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- =========================================================================
+         7. Connect With Keval Gandhi
+         ========================================================================= -->
+    <section class="section" style="padding: 4.5rem 0; background: #ffffff;">
+        <div class="container">
+            <div class="connect-box">
+                <div class="badge-pill-wrapper" style="margin-bottom: 15px;">
+                    <span class="badge-pill">CONNECT WITH KEVAL GANDHI</span>
+                </div>
+                <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #0f2b46; margin-bottom: 16px; font-weight: 800; line-height: 1.25;">
+                    Planning a New Food Manufacturing Project? Looking to Improve Factory Profitability?
+                </h2>
+                <p style="font-size: 1.05rem; line-height: 1.75; color: #475569; max-width: 850px; margin-bottom: 1.5rem; text-align: justify;">
+                    Whether you are establishing a new food processing facility, reviewing your existing manufacturing costs or looking to improve operational efficiency, let's discuss your business requirements.
+                </p>
+                <p style="font-size: 1.05rem; font-weight: 600; color: var(--color-primary); margin-bottom: 2rem;">
+                    Let's understand your challenges and explore a practical way forward.
+                </p>
+                <div>
+                    <button class="btn btn-primary cta-trigger" style="font-weight: 700; padding: 14px 28px;">
+                        Request a Consultation <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="connect-contact-row">
+                    <div class="connect-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; display: block;">Email</span>
+                            <a href="mailto:keval.projectindia@gmail.com">keval.projectindia@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="connect-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; display: block;">Phone / WhatsApp</span>
+                            <a href="tel:+919023979663">+91 9023979663</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <div id="footer-root"></div>
     <div id="popup-root"></div>
