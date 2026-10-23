@@ -9,12 +9,6 @@ window.KGC_COMPONENTS = {
 <!-- Navigation Menu -->
 <header class="header">
     <div class="container nav-container">
-        <div class="logo">
-            <a href="index.html">
-                <img src="assets/logo.png" alt="KGC Logo" class="nav-logo-img" style="height: 60px; width: auto; display: block;">
-            </a>
-        </div>
-
         <nav class="main-nav">
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
