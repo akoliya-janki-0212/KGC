@@ -2840,3 +2840,153 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================================================
+   Consultant Hero Section (White Backdrop Split Layout - Always Side-by-Side)
+   ========================================================================= */
+.hero.hero-white-split {
+  min-height: auto !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
+  background: #ffffff !important;
+  position: relative;
+  overflow: hidden;
+  display: block !important;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.hero-full-split-grid {
+  display: grid !important;
+  grid-template-columns: 0.45fr 0.55fr !important;
+  align-items: center;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 480px;
+}
+
+.hero-flush-image-col {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100%;
+  width: 100%;
+  display: flex !important;
+  align-items: flex-end;
+  justify-content: flex-start !important;
+  background: #f8fafc;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-flush-img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 380px;
+  max-height: 580px;
+  object-fit: cover !important;
+  object-position: top center !important;
+  display: block !important;
+}
+
+.hero-content-col {
+  padding: 3rem clamp(1.5rem, 4vw, 4.5rem) !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  background: #ffffff;
+  height: 100%;
+}
+
+.hero-content-inner {
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: left !important;
+}
+
+.hero-white-split .hero-big-title {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(1.4rem, 2.6vw, 2.75rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.22 !important;
+  color: #0f2b46 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 !important;
+  text-shadow: none !important;
+  text-align: left !important;
+}
+
+.hero-white-split .hero-big-title .highlight-text {
+  color: var(--color-primary) !important;
+  display: inline;
+}
+
+.hero-white-split .hero-author-line {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem) !important;
+  font-weight: 700 !important;
+  color: #0f2b46 !important;
+  display: block !important;
+  margin-top: 0.25rem !important;
+  letter-spacing: 0.2px !important;
+  text-align: left !important;
+}
+
+/* Tablet & Mobile responsive (Always keep Left Side Image & Right Side Text) */
+@media (max-width: 768px) {
+  .hero-full-split-grid {
+    grid-template-columns: 0.42fr 0.58fr !important;
+    min-height: 260px !important;
+  }
+  .hero-flush-image-col {
+    height: 100% !important;
+    min-height: 240px !important;
+    max-height: none !important;
+  }
+  .hero-flush-img {
+    height: 100% !important;
+    min-height: 240px !important;
+    max-height: 380px !important;
+    object-position: top center !important;
+  }
+  .hero-content-col {
+    padding: 1.5rem 1.25rem 1.5rem 1rem !important;
+  }
+  .hero-content-inner {
+    gap: 0.75rem !important;
+    text-align: left !important;
+  }
+  .hero-white-split .hero-big-title {
+    font-size: clamp(1rem, 3.4vw, 1.35rem) !important;
+    line-height: 1.25 !important;
+  }
+  .hero-white-split .hero-author-line {
+    font-size: clamp(0.85rem, 2.6vw, 1.05rem) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-full-split-grid {
+    grid-template-columns: 0.4fr 0.6fr !important;
+    min-height: 210px !important;
+  }
+  .hero-flush-image-col {
+    min-height: 190px !important;
+  }
+  .hero-flush-img {
+    min-height: 190px !important;
+    max-height: 300px !important;
+    object-position: top center !important;
+  }
+  .hero-content-col {
+    padding: 1rem 0.75rem 1rem 0.65rem !important;
+  }
+  .hero-white-split .hero-big-title {
+    font-size: 0.92rem !important;
+    line-height: 1.26 !important;
+  }
+  .hero-white-split .hero-author-line {
+    font-size: 0.82rem !important;
+  }
+}
