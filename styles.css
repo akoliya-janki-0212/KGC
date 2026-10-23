@@ -2826,3 +2826,17 @@ textarea:focus {
     gap: 15px;
   }
 }
+
+/* --- Spice Sigma Section --- */
+.spice-sigma-phases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 540px) {
+  .spice-sigma-phases-grid {
+    grid-template-columns: 1fr;
+  }
+}
